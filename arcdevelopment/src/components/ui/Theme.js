@@ -27,6 +27,12 @@ export default createMuiTheme({
             textTransform: "none",  // do not auto convert to upper case
             fontSize: "1rem",
             fontWeight: "700",
+        },
+        estimate: {
+            fontFamily: "Pacifico",
+            fontSize: "1rem",
+            textTransform: "none",
+            color: "white",
         }
     }
   
