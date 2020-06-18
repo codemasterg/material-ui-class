@@ -25,12 +25,40 @@ function ElevationScroll(props) {
 }
 
 const tabIndexToPathMap = {
-    0: "/",
-    1: "/services",
-    2: "/revolution",
-    3: "/about",
-    4: "/contact",
-
+    0: {
+        path: "/"
+    },
+    1: {
+        path: "/services",
+        submenuItems: [
+            // Services is repeated because popup menu obscures original services tab
+            {
+                path: "/services",
+                label: "Services"
+            },
+            {
+                path: "/customsoftware",
+                label: "Custom Software Development"
+            },
+            {
+                path: "/mobileapps",
+                label: "Mobile Applications"
+            },
+            {
+                path: "/websites",
+                label: "Websites"
+            }
+        ]
+    },
+    2: {
+        path: "/revolution",
+    },
+    3: {
+        path: "/about",
+    },
+    4: {
+        path: "/contact",
+    },
 }
 
 const Header = (props) => {
@@ -40,11 +68,28 @@ const Header = (props) => {
     const [tabIndex, setTabIndex] = useState(0);
     const [menuAnchorEl, setMenuAnchorEl] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [menuItemSelectedIndex, setMenuItemSelectedIndex] = useState(0);
 
 
     function getKeyByValue(object, value) {
         console.log(value);
-        let key = Object.keys(object).find(key => object[key] === value);
+        let key = Object.keys(object).find(key => object[key].path === value);
+
+        // check for submenu items with a matching path
+        if (key === undefined) {
+
+            Object.keys(object).forEach((menuKey, index) => {
+                if (object[menuKey].submenuItems !== undefined) {
+                    for (var i = 0; i < object[menuKey].submenuItems.length; i++) {
+                        if (object[menuKey].submenuItems[i].path === value) {
+                            key = menuKey;
+                            setMenuItemSelectedIndex(i);
+                            break;
+                        }
+                    }
+                }
+            });
+        }
         return (parseInt(key));
     }
 
@@ -85,23 +130,23 @@ const Header = (props) => {
                 and the elevate effect actually works. */}
             <AppBar position="sticky">
                 <Toolbar disableGutters>
-                    <Button component={Link} to="/" 
-                    onClick={() => setTabIndex(0)} 
-                    className={classes.logoContainer} disableRipple>
+                    <Button component={Link} to="/"
+                        onClick={() => setTabIndex(0)}
+                        className={classes.logoContainer} disableRipple>
                         <img src={logo} alt="company logo" className={classes.logo} />
                     </Button>
 
                     <Tabs value={tabIndex} onChange={handleChange} className={classes.tabContainer}>
-                        <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[0]} label="Home" />
-                        <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[1]} 
-                            label="Services" 
+                        <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[0].path} label="Home" />
+                        <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[1].path}
+                            label="Services"
                             aria-owns={menuAnchorEl ? "service-items" : undefined}
                             aria-haspopup={menuAnchorEl ? true : undefined}
                             onMouseOver={event => handleMenuClick(event)}
-                            />
-                        <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[2]} label="The Revolution" />
-                        <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[3]} label="About Us" />
-                        <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[4]} label="Contact Us" />
+                        />
+                        <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[2].path} label="The Revolution" />
+                        <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[3].path} label="About Us" />
+                        <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[4].path} label="Contact Us" />
                     </Tabs>
                     <Button variant="contained" color="secondary" component={Link} to="/estimate" className={classes.ovalButton}>
                         Free Estimate
@@ -109,14 +154,26 @@ const Header = (props) => {
 
                     {/* Create services submenu using aria-owns ID. Note how mouse leave must be handled
                         as a menu list property while mouse over is simply a direct property of Tab (above). */}
-                    <Menu id="service-items" 
-                        anchorEl={menuAnchorEl} 
-                        open={menuOpen} 
-                        onClose={handleMenuClose} 
-                        MenuListProps={{onMouseLeave: handleMenuClose}}>
-                        <MenuItem onClick={handleMenuClose}>Custom Software Development</MenuItem>
-                        <MenuItem onClick={handleMenuClose}>Mobile App Development</MenuItem>
-                        <MenuItem onClick={handleMenuClose}>Website Development</MenuItem>
+                    <Menu id="service-items"
+                        anchorEl={menuAnchorEl}
+                        open={menuOpen}
+                        onClose={handleMenuClose}
+                        // elevation={0}
+                        MenuListProps={{ onMouseLeave: handleMenuClose }}
+                        // paper is the underlying mui css style used by Menu, see API doc
+                        classes={{ paper: classes.servicesMenu }}>
+
+                        {
+                            tabIndexToPathMap[1].submenuItems.map((item, index) => (
+
+                                <MenuItem key={index} component={Link} to={item.path}
+                                    onClick={() => { handleMenuClose(); setTabIndex(1); setMenuItemSelectedIndex(index) }}
+                                    classes={{ root: classes.serviceMenuItem }}
+                                    selected={index === menuItemSelectedIndex  && tabIndex === 1}>{item.label}
+                                </MenuItem>
+
+                            ))
+                        }
                     </Menu>
                 </Toolbar>
             </AppBar>

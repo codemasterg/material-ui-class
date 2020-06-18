@@ -28,4 +28,18 @@ export default makeStyles ( (theme) => ({
         margin: "0 50px 0 25px",
         height: "45px",
     },
+
+    servicesMenu: {
+        backgroundColor: theme.palette.common.blue,
+        color: "white",
+    },
+
+    serviceMenuItem: {
+        // Apply consistent tab styling to service menu items as well
+        ...theme.typography.tab,
+        opacity: 0.7,
+        "&:hover": {
+            opacity: 1,
+        }
+    },
 }));
