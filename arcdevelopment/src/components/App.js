@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { ThemeProvider } from '@material-ui/styles';
-import Header from './ui/Header';
+import Header from './ui/Header/Header';
 import theme from './ui/Theme';
 
 function App() {

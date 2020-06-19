@@ -5,7 +5,13 @@ import {makeStyles} from '@material-ui/styles'
  */
 export default makeStyles ( (theme) => ({
     logo: {
-        height: "8em"
+        height: "8em",
+        [theme.breakpoints.down("md")]: {
+            height: "6em",
+        },
+        [theme.breakpoints.down("xs")]: {  // mobile phones are extra small
+            height: "5em",
+        },
     }, 
 
     logoContainer: {
