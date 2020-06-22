@@ -5,6 +5,15 @@ import { ThemeProvider } from '@material-ui/styles';
 import Header from './ui/Header/Header';
 import theme from './ui/Theme';
 
+/**
+ * Dependencies:
+ * sudo npm install -g create-react-app  (one time for machine)
+   sudo npm install react
+   sudo npm install react-router
+   npm install @material-ui/core
+   npm install @material-ui/styles
+   sudo npm install @material-ui/icons
+ */
 function App() {
   return (
     <ThemeProvider theme={theme}>

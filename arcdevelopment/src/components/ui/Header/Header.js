@@ -10,6 +10,13 @@ import Tab from '@material-ui/core/Tab'
 import Button from '@material-ui/core/Button'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { useTheme } from '@material-ui/core/styles'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
+import MenuIcon from '@material-ui/icons/Menu'
+import IconButton from '@material-ui/core/IconButton'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+
 
 import logo from '../../../assets/logo.svg'
 import headerStyles from './headerStyles'
@@ -31,12 +38,15 @@ const Header = (props) => {
     const classes = headerStyles();
     const theme = useTheme();
     const isMediumToSmallScreen = useMediaQuery(theme.breakpoints.down("md"));  // medium and smaller
+    // iOS has a "swipe to go back" feature that interferes with the discovery feature, so discovery has to be disabled.
+    const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     // Hooks
     const [tabIndex, setTabIndex] = useState(0);
     const [menuAnchorEl, setMenuAnchorEl] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
     const [menuItemSelectedIndex, setMenuItemSelectedIndex] = useState(0);
+    const [openDrawer, setOpenDrawer] = useState(false);
 
     useEffect(() => {
 
@@ -48,7 +58,7 @@ const Header = (props) => {
     }, [tabIndex]);
 
     /**
-     * Tab change handler
+     * Tab change HANDLER
      * 
      * @param {*} value index of the selected tab 
      */
@@ -72,20 +82,22 @@ const Header = (props) => {
     const tabs = (
         <Fragment>
             <Tabs value={tabIndex} onChange={handleChange} className={classes.tabContainer}>
-                <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[0].path} label="Home" />
-                <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[1].path}
-                    label="Services"
-                    aria-owns={menuAnchorEl ? "service-items" : undefined}
-                    aria-haspopup={menuAnchorEl ? true : undefined}
-                    onMouseOver={event => handleMenuClick(event)}
-                />
-                <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[2].path} label="The Revolution" />
-                <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[3].path} label="About Us" />
-                <Tab className={classes.tab} component={Link} to={tabIndexToPathMap[4].path} label="Contact Us" />
+                {/* Services has a sub-menu, esitmate is implemented as button on the menu, but is a regular drawer item */}
+                {Object.values(tabIndexToPathMap).map((tab, index) => (
+                    tab.path === "/services" ?
+                        <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path}
+                            label={tabIndexToPathMap[index].label}
+                            aria-owns={menuAnchorEl ? "service-items" : undefined}
+                            aria-haspopup={menuAnchorEl ? true : undefined}
+                            onMouseOver={event => handleMenuClick(event)}
+                        /> : tab.path !== "/estimate" ?
+                            <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path} label={tabIndexToPathMap[index].label} /> : null
+                ))}
+
             </Tabs>
-            <Button variant="contained" color="secondary" component={Link} to="/estimate" className={classes.ovalButton}>
-                Free Estimate
-                    </Button>
+            <Button variant="contained" color="secondary" component={Link} to={tabIndexToPathMap[5].path} className={classes.ovalButton}>
+                {tabIndexToPathMap[5].label}
+            </Button>
 
             {/* Create services submenu using aria-owns ID. Note how mouse leave must be handled
                         as a menu list property while mouse over is simply a direct property of Tab (above). */}
@@ -101,7 +113,7 @@ const Header = (props) => {
                 {
                     tabIndexToPathMap[1].submenuItems.map((item, index) => (
 
-                        <MenuItem key={index} component={Link} to={item.path}
+                        <MenuItem key={item.path} component={Link} to={item.path}
                             onClick={() => { handleMenuClose(); setTabIndex(1); setMenuItemSelectedIndex(index) }}
                             classes={{ root: classes.serviceMenuItem }}
                             selected={index === menuItemSelectedIndex && tabIndex === 1}>{item.label}
@@ -113,23 +125,55 @@ const Header = (props) => {
         </Fragment>
     )
 
+    const drawer = (
+        <Fragment>
+            <SwipeableDrawer
+                disableBackdropTransition={!iOS} disableDiscovery={iOS}
+                open={openDrawer}
+                onClose={() => setOpenDrawer(false)} onOpen={() => setOpenDrawer(true)}
+                classes={{ paper: classes.drawer }}>
+
+                <List disablePadding>
+                    {Object.values(tabIndexToPathMap).map((tab, index) => (
+                        tab.path !== "/estimate" ?
+                            <ListItem key={tab.path} divider button onClick={() => { setOpenDrawer(false); handleChange() }} selected={tabIndex === index}
+                                component={Link} to={tabIndexToPathMap[index].path}>
+                                <ListItemText className={tabIndex === index ? `${classes.drawerItem} ${classes.drawerItemSelected}` : classes.drawerItem} > {tabIndexToPathMap[index].label}</ListItemText></ListItem>
+                            :
+                            <ListItem key={tab.path} divider button onClick={() => { setOpenDrawer(false); handleChange() }} selected={tabIndex === index} component={Link} to={tabIndexToPathMap[index].path}>
+                                <ListItemText className={tabIndex === 5 ? `${classes.drawerItem} ${classes.drawerItemSelected} ${classes.drawerItemEstimate}` : `${classes.drawerItem} ${classes.drawerItemEstimate}`} >{tabIndexToPathMap[5].label}</ListItemText>
+                            </ListItem>
+                    ))}
+                </List>
+            </SwipeableDrawer>
+            <IconButton
+                className={classes.drawerIconContainer}
+                onClick={() => setOpenDrawer(!openDrawer)} disableRipple>
+                <MenuIcon className={classes.drawerIcon} />
+            </IconButton>
+        </Fragment>
+    )
+
     return (
+        <Fragment>
         <ElevationScroll {...props}>
             {/* must use sticky so that none the page's content is hidden behind the AppBar
                 and the elevate effect actually works. */}
             <AppBar position="sticky">
-                <Toolbar disableGutters>
+                <Toolbar disableGutters className={classes.toolbarMargin}>
                     <Button component={Link} to="/"
                         onClick={() => setTabIndex(0)}
                         className={classes.logoContainer} disableRipple>
                         <img src={logo} alt="company logo" className={classes.logo} />
                     </Button>
-                    
-                    {isMediumToSmallScreen ? null : tabs}
-                
+
+                    {isMediumToSmallScreen ? drawer : tabs}
+
                 </Toolbar>
             </AppBar>
         </ElevationScroll>
+        <div className={classes.toolbarMargin} />
+        </Fragment>
     )
 
 

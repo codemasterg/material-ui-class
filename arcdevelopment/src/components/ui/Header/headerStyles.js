@@ -4,13 +4,15 @@ import {makeStyles} from '@material-ui/styles'
  * Header styles based on the theme setup in App.js
  */
 export default makeStyles ( (theme) => ({
+ 
+
     logo: {
         height: "8em",
         [theme.breakpoints.down("md")]: {
-            height: "6em",
+            height: "7em",
         },
         [theme.breakpoints.down("xs")]: {  // mobile phones are extra small
-            height: "5em",
+            height: "6.5em",
         },
     }, 
 
@@ -48,4 +50,39 @@ export default makeStyles ( (theme) => ({
             opacity: 1,
         }
     },
+
+    drawerIcon: {
+        height: "50px",
+        width: "50px",
+    },
+
+    drawerIconContainer: {
+        marginLeft: "auto",
+        "&:hover": {
+            backgroundColor: "transparent",
+        }
+    },
+
+    drawer: {
+        backgroundColor: theme.palette.common.blue,
+
+    },
+
+    drawerItem: {
+        ...theme.typography.tab,  // use spread operator to expand this def in one line
+        color: "white",
+        opacity: 0.7,
+
+    },
+
+    drawerItemEstimate: {
+        backgroundColor: theme.palette.common.orange,
+
+    },
+
+    drawerItemSelected: {
+        opacity: 1,
+
+    },
+
 }));
