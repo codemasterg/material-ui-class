@@ -1,10 +1,18 @@
-import {makeStyles} from '@material-ui/styles'
+import { makeStyles } from '@material-ui/styles'
 
 /**
  * Header styles based on the theme setup in App.js
  */
-export default makeStyles ( (theme) => ({
- 
+export default makeStyles((theme) => ({
+    toolbarMargin: {
+        marginBottom: "8em",
+        [theme.breakpoints.down("md")]: {
+            marginBottom: "7em",
+        },
+        [theme.breakpoints.down("xs")]: {  // mobile phones are extra small
+            marginBottom: "6em",
+        },
+    },
 
     logo: {
         height: "8em",
@@ -14,14 +22,14 @@ export default makeStyles ( (theme) => ({
         [theme.breakpoints.down("xs")]: {  // mobile phones are extra small
             height: "6.5em",
         },
-    }, 
+    },
 
     logoContainer: {
         padding: 0
     },
 
     tabContainer: {
-        marginLeft: "auto"
+        marginLeft: "auto",
     },
 
     tab: {
@@ -40,6 +48,8 @@ export default makeStyles ( (theme) => ({
     servicesMenu: {
         backgroundColor: theme.palette.common.blue,
         color: "white",
+        // Since appbar style uses a higher z-index, must create margin for the services menu so items are not obscured by the appbar.
+        marginTop: "5em",
     },
 
     serviceMenuItem: {
@@ -85,4 +95,8 @@ export default makeStyles ( (theme) => ({
 
     },
 
+    // Put menu bar on top of everything so that when a Drawer is used for smaller screens, it will not obscure the menu bar.
+    appbar: {
+        zIndex: theme.zIndex.modal + 1
+    }
 }));

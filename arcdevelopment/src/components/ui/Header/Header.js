@@ -127,11 +127,15 @@ const Header = (props) => {
 
     const drawer = (
         <Fragment>
+
             <SwipeableDrawer
                 disableBackdropTransition={!iOS} disableDiscovery={iOS}
                 open={openDrawer}
                 onClose={() => setOpenDrawer(false)} onOpen={() => setOpenDrawer(true)}
                 classes={{ paper: classes.drawer }}>
+                
+                {/* Add bottom margin so content apprearing below the tool bar is not hidden behind it */}
+                <div className={classes.toolbarMargin} />
 
                 <List disablePadding>
                     {Object.values(tabIndexToPathMap).map((tab, index) => (
@@ -157,10 +161,8 @@ const Header = (props) => {
     return (
         <Fragment>
         <ElevationScroll {...props}>
-            {/* must use sticky so that none the page's content is hidden behind the AppBar
-                and the elevate effect actually works. */}
-            <AppBar position="sticky">
-                <Toolbar disableGutters className={classes.toolbarMargin}>
+            <AppBar position="fixed" className={classes.appbar}>
+                <Toolbar disableGutters>
                     <Button component={Link} to="/"
                         onClick={() => setTabIndex(0)}
                         className={classes.logoContainer} disableRipple>
@@ -172,7 +174,9 @@ const Header = (props) => {
                 </Toolbar>
             </AppBar>
         </ElevationScroll>
+        {/* Add bottom margin so content apprearing below the tool bar is not hidden behind it */}
         <div className={classes.toolbarMargin} />
+
         </Fragment>
     )
 
