@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { ThemeProvider } from '@material-ui/styles';
 import Header from './ui/Header/Header';
+import Footer from './ui/Footer/Footer';
 import theme from './ui/Theme';
 
 /**
@@ -20,16 +21,17 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/" component={() => <div>Home Page</div>} />
-          <Route exact path="/services" component={() => <div>Services Page</div>} />
-          <Route exact path="/customsoftware" component={() => <div>Custom SW Page</div>} />
+          <Route exact path="/" component={() => <div style={ {height: "650px"} }>Home Page</div>} />
+          <Route exact path="/services" component={() => <div style={ {height: "650px"}}>Services Page</div>} />
+          <Route exact path="/customsoftware" component={() => <div style={ {height: "650px"}}>Custom SW Page</div>} />
           <Route exact path="/mobileapps" component={() => <div>Mobile Page</div>} />
           <Route exact path="/websites" component={() => <div>Websites Page</div>} />
-          <Route exact path="/revolution" component={() => <div>Revolution Page</div>} />
-          <Route exact path="/about" component={() => <div>About Page</div>} />
-          <Route exact path="/contact" component={() => <div>Contact Page</div>} />
-          <Route exact path="/estimate" component={() => <div>Estimate Page</div>} />
+          <Route exact path="/revolution" component={() => <div style={ {height: "650px"}}>Revolution Page</div>} />
+          <Route exact path="/about" component={() => <div style={ {height: "650px"}}>About Page</div>} />
+          <Route exact path="/contact" component={() => <div style={ {height: "650px"}}>Contact Page</div>} />
+          <Route exact path="/estimate" component={() => <div style={ {height: "650px"}}>Estimate Page</div>} />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );

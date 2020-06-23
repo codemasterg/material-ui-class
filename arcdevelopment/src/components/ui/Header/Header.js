@@ -79,6 +79,7 @@ const Header = (props) => {
         setMenuOpen(false);
     }
 
+    // Only appears when medium and small screens are not used, see varibale 'isMediumToSmallScreen' in this file.
     const tabs = (
         <Fragment>
             <Tabs value={tabIndex} onChange={handleChange} className={classes.tabContainer}>
@@ -125,9 +126,9 @@ const Header = (props) => {
         </Fragment>
     )
 
+    // Only appears when medium and small screens are used, see varibale 'isMediumToSmallScreen' in this file.
     const drawer = (
         <Fragment>
-
             <SwipeableDrawer
                 disableBackdropTransition={!iOS} disableDiscovery={iOS}
                 open={openDrawer}
