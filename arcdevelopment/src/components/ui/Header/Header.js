@@ -42,20 +42,44 @@ const Header = (props) => {
     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     // Hooks
-    const [tabIndex, setTabIndex] = useState(0);
     const [menuAnchorEl, setMenuAnchorEl] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [menuItemSelectedIndex, setMenuItemSelectedIndex] = useState(0);
+
     const [openDrawer, setOpenDrawer] = useState(false);
 
     useEffect(() => {
+        /**
+         * Return the tab index associated with the given pathValue.
+         * @param {*} object 
+         * @param {*} pathValue 
+         */
+        function getTabIndexByPath(object, pathValue) {
+            let key = Object.keys(object).find(key => object[key].path === pathValue);
+
+            // check for submenu items with a matching path
+            if (key === undefined) {
+
+                Object.keys(object).forEach((menuKey, index) => {
+                    if (object[menuKey].submenuItems !== undefined) {
+                        for (var i = 0; i < object[menuKey].submenuItems.length; i++) {
+                            if (object[menuKey].submenuItems[i].path === pathValue) {
+                                key = menuKey;
+                                props.setMenuItemSelectedIndex(i);
+                                break;
+                            }
+                        }
+                    }
+                });
+            }
+            return (parseInt(key));
+        }
 
         // use current URL to determine which tab should be selected following a page refresh
         let targetTabIndex = getTabIndexByPath(tabIndexToPathMap, window.location.pathname);
-        if (targetTabIndex !== tabIndex) {
-            setTabIndex(targetTabIndex);
+        if (targetTabIndex !== props.tabIndex) {
+            props.setTabIndex(targetTabIndex);
         }
-    }, [tabIndex]);
+    }, [props, props.tabIndex]);
 
     /**
      * Tab change HANDLER
@@ -63,7 +87,7 @@ const Header = (props) => {
      * @param {*} value index of the selected tab 
      */
     const handleChange = (event, value) => {
-        setTabIndex(value);
+        props.setTabIndex(value);
     }
 
     /**
@@ -82,7 +106,7 @@ const Header = (props) => {
     // Only appears when medium and small screens are not used, see varibale 'isMediumToSmallScreen' in this file.
     const tabs = (
         <Fragment>
-            <Tabs value={tabIndex} onChange={handleChange} className={classes.tabContainer}>
+            <Tabs value={props.tabIndex} onChange={handleChange} className={classes.tabContainer}>
                 {/* Services has a sub-menu, esitmate is implemented as button on the menu, but is a regular drawer item */}
                 {Object.values(tabIndexToPathMap).map((tab, index) => (
                     tab.path === "/services" ?
@@ -115,9 +139,9 @@ const Header = (props) => {
                     tabIndexToPathMap[1].submenuItems.map((item, index) => (
 
                         <MenuItem key={item.path} component={Link} to={item.path}
-                            onClick={() => { handleMenuClose(); setTabIndex(1); setMenuItemSelectedIndex(index) }}
+                            onClick={() => { handleMenuClose(); props.setTabIndex(1); props.setMenuItemSelectedIndex(index) }}
                             classes={{ root: classes.serviceMenuItem }}
-                            selected={index === menuItemSelectedIndex && tabIndex === 1}>{item.label}
+                            selected={index === props.menuItemSelectedIndex && props.tabIndex === 1}>{item.label}
                         </MenuItem>
 
                     ))
@@ -134,19 +158,19 @@ const Header = (props) => {
                 open={openDrawer}
                 onClose={() => setOpenDrawer(false)} onOpen={() => setOpenDrawer(true)}
                 classes={{ paper: classes.drawer }}>
-                
+
                 {/* Add bottom margin so content apprearing below the tool bar is not hidden behind it */}
                 <div className={classes.toolbarMargin} />
 
                 <List disablePadding>
                     {Object.values(tabIndexToPathMap).map((tab, index) => (
                         tab.path !== "/estimate" ?
-                            <ListItem key={tab.path} divider button onClick={() => { setOpenDrawer(false); handleChange() }} selected={tabIndex === index}
+                            <ListItem key={tab.path} divider button onClick={() => { setOpenDrawer(false); handleChange() }} selected={props.tabIndex === index}
                                 component={Link} to={tabIndexToPathMap[index].path}>
-                                <ListItemText className={tabIndex === index ? `${classes.drawerItem} ${classes.drawerItemSelected}` : classes.drawerItem} > {tabIndexToPathMap[index].label}</ListItemText></ListItem>
+                                <ListItemText className={props.tabIndex === index ? `${classes.drawerItem} ${classes.drawerItemSelected}` : classes.drawerItem} > {tabIndexToPathMap[index].label}</ListItemText></ListItem>
                             :
-                            <ListItem key={tab.path} divider button onClick={() => { setOpenDrawer(false); handleChange() }} selected={tabIndex === index} component={Link} to={tabIndexToPathMap[index].path}>
-                                <ListItemText className={tabIndex === 5 ? `${classes.drawerItem} ${classes.drawerItemSelected} ${classes.drawerItemEstimate}` : `${classes.drawerItem} ${classes.drawerItemEstimate}`} >{tabIndexToPathMap[5].label}</ListItemText>
+                            <ListItem key={tab.path} divider button onClick={() => { setOpenDrawer(false); handleChange() }} selected={props.tabIndex === index} component={Link} to={tabIndexToPathMap[index].path}>
+                                <ListItemText className={props.tabIndex === 5 ? `${classes.drawerItem} ${classes.drawerItemSelected} ${classes.drawerItemEstimate}` : `${classes.drawerItem} ${classes.drawerItemEstimate}`} >{tabIndexToPathMap[5].label}</ListItemText>
                             </ListItem>
                     ))}
                 </List>
@@ -161,52 +185,25 @@ const Header = (props) => {
 
     return (
         <Fragment>
-        <ElevationScroll {...props}>
-            <AppBar position="fixed" className={classes.appbar}>
-                <Toolbar disableGutters>
-                    <Button component={Link} to="/"
-                        onClick={() => setTabIndex(0)}
-                        className={classes.logoContainer} disableRipple>
-                        <img src={logo} alt="company logo" className={classes.logo} />
-                    </Button>
+            <ElevationScroll {...props}>
+                <AppBar position="fixed" className={classes.appbar}>
+                    <Toolbar disableGutters>
+                        <Button component={Link} to="/"
+                            onClick={() => props.setTabIndex(0)}
+                            className={classes.logoContainer} disableRipple>
+                            <img src={logo} alt="company logo" className={classes.logo} />
+                        </Button>
 
-                    {isMediumToSmallScreen ? drawer : tabs}
+                        {isMediumToSmallScreen ? drawer : tabs}
 
-                </Toolbar>
-            </AppBar>
-        </ElevationScroll>
-        {/* Add bottom margin so content apprearing below the tool bar is not hidden behind it */}
-        <div className={classes.toolbarMargin} />
+                    </Toolbar>
+                </AppBar>
+            </ElevationScroll>
+            {/* Add bottom margin so content apprearing below the tool bar is not hidden behind it */}
+            <div className={classes.toolbarMargin} />
 
         </Fragment>
     )
-
-
-    /**
-     * Return the tab index associated with the given pathValue.
-     * @param {*} object 
-     * @param {*} pathValue 
-     */
-    function getTabIndexByPath(object, pathValue) {
-        let key = Object.keys(object).find(key => object[key].path === pathValue);
-
-        // check for submenu items with a matching path
-        if (key === undefined) {
-
-            Object.keys(object).forEach((menuKey, index) => {
-                if (object[menuKey].submenuItems !== undefined) {
-                    for (var i = 0; i < object[menuKey].submenuItems.length; i++) {
-                        if (object[menuKey].submenuItems[i].path === pathValue) {
-                            key = menuKey;
-                            setMenuItemSelectedIndex(i);
-                            break;
-                        }
-                    }
-                }
-            });
-        }
-        return (parseInt(key));
-    }
 };
 
 export default Header

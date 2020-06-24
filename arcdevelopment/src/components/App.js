@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { ThemeProvider } from '@material-ui/styles';
@@ -16,22 +16,27 @@ import theme from './ui/Theme';
    sudo npm install @material-ui/icons
  */
 function App() {
+
+  // Hooks
+  const [menuItemSelectedIndex, setMenuItemSelectedIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(0);
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Header />
+        <Header tabIndex={tabIndex} setTabIndex={setTabIndex} menuItemSelectedIndex={menuItemSelectedIndex} setMenuItemSelectedIndex={setMenuItemSelectedIndex} />
         <Switch>
           <Route exact path="/" component={() => <div style={ {height: "650px"} }>Home Page</div>} />
           <Route exact path="/services" component={() => <div style={ {height: "650px"}}>Services Page</div>} />
           <Route exact path="/customsoftware" component={() => <div style={ {height: "650px"}}>Custom SW Page</div>} />
-          <Route exact path="/mobileapps" component={() => <div>Mobile Page</div>} />
-          <Route exact path="/websites" component={() => <div>Websites Page</div>} />
+          <Route exact path="/mobileapps" component={() => <div style={ {height: "650px"}}>Mobile Page</div>} />
+          <Route exact path="/websites" component={() => <div style={ {height: "650px"}}>Websites Page</div>} />
           <Route exact path="/revolution" component={() => <div style={ {height: "650px"}}>Revolution Page</div>} />
           <Route exact path="/about" component={() => <div style={ {height: "650px"}}>About Page</div>} />
           <Route exact path="/contact" component={() => <div style={ {height: "650px"}}>Contact Page</div>} />
           <Route exact path="/estimate" component={() => <div style={ {height: "650px"}}>Estimate Page</div>} />
         </Switch>
-        <Footer />
+        <Footer tabIndex={tabIndex} setTabIndex={setTabIndex} menuItemSelectedIndex={menuItemSelectedIndex} setMenuItemSelectedIndex={setMenuItemSelectedIndex} />
       </BrowserRouter>
     </ThemeProvider>
   );
