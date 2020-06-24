@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
         width: "100%",
         zIndex: theme.zIndex.modal + 1,
         // even though this is the default position, must set it in order to zIndex to work
-        position: "relative"
+        position: "relative",
     },
 
     adornment: {

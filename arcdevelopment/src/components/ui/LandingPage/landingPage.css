@@ -1,0 +1,11 @@
+
+/* Example of using image to fill background */
+.background {
+    background: url("../../../assets/landingPage.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 600px;
+    margin-top: 5.5em;
+}
