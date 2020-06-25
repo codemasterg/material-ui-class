@@ -1,7 +1,8 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const arcBlue = "#0B72B9";
-const arcOrange = "#FFBA60";
+const arcBlue = "#27AE60";
+
+const arcOrange = "#F5B041";
 
 /**
  * Define common MUI theme overrides that are unique to this app

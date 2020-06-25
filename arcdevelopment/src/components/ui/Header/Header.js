@@ -18,7 +18,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 
-import logo from '../../../assets/logo.svg'
+import logo from '../../../assets/CP-logo-v1.svg'
+// import logo from '../../../assets/logo.svg'
 import headerStyles from './headerStyles'
 import tabIndexToPathMap from './headerTabs'
 

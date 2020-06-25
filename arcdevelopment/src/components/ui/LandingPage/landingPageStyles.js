@@ -19,5 +19,7 @@ export default makeStyles((theme) => ({
         },
     },
 
-    
+    tagLine: {
+        marginLeft: "1em"
+    }    
 }));

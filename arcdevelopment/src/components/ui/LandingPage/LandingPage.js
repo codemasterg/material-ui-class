@@ -20,7 +20,7 @@ const LandingPage = (props) => {
             <Grid item>
                 <Grid container justify="flex-start" alignItems="center" direction="row"  >
                     <Grid sm item>
-                        <Typography align="center" variant="h2">Bringing West Coast Technology<br />to the Midwest</Typography>
+                        <Typography align="center" variant="h2" className={classes.tagLine}>From Requirements to<br />Production Ready Code</Typography>
                         <Grid container>
                             <Grid item>
                                 <Button variant="contained">Free Estimate</Button>

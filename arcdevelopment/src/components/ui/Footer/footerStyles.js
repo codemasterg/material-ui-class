@@ -7,19 +7,24 @@ export default makeStyles((theme) => ({
     footer: {
         backgroundColor: theme.palette.common.blue,
         width: "100%",
+        height: "12em",
         zIndex: theme.zIndex.modal + 1,
         // even though this is the default position, must set it in order to zIndex to work
         position: "relative",
+        [theme.breakpoints.down("md")]: {
+            height: "4em",
+            marginTop: "2em",
+        },
     },
 
     adornment: {
-        width: "25em",
+        width: "10em",
         verticalAlign: "bottom",
         [theme.breakpoints.down("md")]: {
-            width: "21em",
+            width: "8em",
         },
         [theme.breakpoints.down("xs")]: {
-            width: "15em",
+            width: "7em",
         },
     },
     footerContainer: {
@@ -41,6 +46,12 @@ export default makeStyles((theme) => ({
     icon: {
         height: "4em",
         width: "4em",
+        marginTop: "4em",
+        [theme.breakpoints.down("md")]: {
+            height: "2em",
+            width: "2em",
+            marginTop: "3em",
+        },
         [theme.breakpoints.down("xs")]: {
             height: "2.5em",
             width: "2.5em",
