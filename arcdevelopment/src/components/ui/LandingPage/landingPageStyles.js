@@ -41,16 +41,43 @@ export default makeStyles((theme) => ({
         marginBottom: "2em",
     },
 
-    learnButton: {
-        borderColor: theme.palette.primary.main,
-        color: theme.palette.primary.main,
-        borderWidth: 2,
-        textTransform: "none",
-        borderRadius: 50,
-        fontFamily: "Roboto",
+    learnButtonHero: {
+        ...theme.typography.learnButton,
         fontWeight: "bold",
         fontSize: "0.9 rem",
         height: 45,
         width: 145,
-    }
+    },
+    learnButton: {
+        ...theme.typography.learnButton,
+        fontSize: "0.7 rem",
+        height: 35,
+        padding: 5,
+        [theme.breakpoints.down("sm")]:{
+            marginBottom: "2em",
+        },
+    },
+
+    specialText: {
+        fontFamily: "Pacifico",
+        color: theme.palette.secondary.main,
+    },
+
+    subtitle: {
+        marginBottom: "1em",
+    },
+
+    icon: {
+        marginLeft: "2em",
+        [theme.breakpoints.down("xs")]: {
+            marginLeft: 0,
+        }
+    },
+
+    serviceContainer: {
+        marginTop: "12em",
+        [theme.breakpoints.down("sm")]:{
+            padding: 25,
+        },
+    },
 }));

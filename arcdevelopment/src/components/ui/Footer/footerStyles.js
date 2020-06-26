@@ -8,7 +8,6 @@ export default makeStyles((theme) => ({
         backgroundColor: theme.palette.common.green,
         width: "100%",
         height: "12em",
-        marginTop: "-1em",
         zIndex: theme.zIndex.modal + 1,
         // even though this is the default position, must set it in order to zIndex to work
         position: "relative",
