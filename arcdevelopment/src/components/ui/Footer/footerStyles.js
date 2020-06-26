@@ -5,15 +5,16 @@ import { makeStyles } from '@material-ui/styles'
  */
 export default makeStyles((theme) => ({
     footer: {
-        backgroundColor: theme.palette.common.blue,
+        backgroundColor: theme.palette.common.green,
         width: "100%",
         height: "12em",
+        marginTop: "-1em",
         zIndex: theme.zIndex.modal + 1,
         // even though this is the default position, must set it in order to zIndex to work
         position: "relative",
         [theme.breakpoints.down("md")]: {
-            height: "4em",
-            marginTop: "2em",
+            height: "6em",
+           
         },
     },
 
@@ -46,7 +47,8 @@ export default makeStyles((theme) => ({
     icon: {
         height: "4em",
         width: "4em",
-        marginTop: "4em",
+        marginLeft: "1em",
+        // marginTop: "4em",
         [theme.breakpoints.down("md")]: {
             height: "2em",
             width: "2em",
@@ -59,11 +61,12 @@ export default makeStyles((theme) => ({
     },
 
     socialContainer: {
+        display: "flex",
         position: "absolute",
-        marginTop: "-6em",
         right: "1.5em",
-        [theme.breakpoints.down("xs")]: {
-            right: "0.6em"
+        [theme.breakpoints.down("md")]: {
+            right: "0.6em",
+            marginTop: "-5em"
         }
     },
 }));

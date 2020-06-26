@@ -1,8 +1,8 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const arcBlue = "#27AE60";
+const codeGreen = "#27AE60";
 
-const arcOrange = "#F5B041";
+const codeOrange = "#F5B041";
 
 /**
  * Define common MUI theme overrides that are unique to this app
@@ -10,16 +10,16 @@ const arcOrange = "#F5B041";
 export default createMuiTheme({
     palette: {
         common: {
-            blue: `${arcBlue}`,
-            orange: `${arcOrange}`
+            green: `${codeGreen}`,
+            orange: `${codeOrange}`
         },
 
         primary: {
-            main: `${arcBlue}`
+            main: `${codeGreen}`
         },
 
         secondary: {
-            main: `${arcOrange}`
+            main: `${codeOrange}`
         }
     },
     typography: {
@@ -39,7 +39,7 @@ export default createMuiTheme({
             fontFamily: "Raleway",
             fontWeight: 700,
             fontSize: "1.7rem",
-            color: `${arcBlue}`,
+            color: `${codeGreen}`,
         }
     }
   

@@ -1,6 +1,6 @@
 import React from 'react'
 
-//import { makeStyles } from '@material-ui/core/styles'
+import { useTheme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
@@ -15,19 +15,21 @@ import landingPageStyles from './landingPageStyles'
 
 const LandingPage = (props) => {
     const classes = landingPageStyles();
+    const theme = useTheme();
+
     return (
         <Grid container direction="column">
             <Grid item>
-                <Grid container justify="flex-start" alignItems="center" direction="row"  >
+                <Grid container justify="center" alignItems="center" direction="row"  >
                     <Grid sm item>
                         <Typography align="center" variant="h2" className={classes.tagLine}>From Requirements to<br />Production Ready Code</Typography>
-                        <Grid container>
+                        <Grid container justify="center" className={classes.buttonContainer} spacing={1}>
                             <Grid item>
-                                <Button variant="contained">Free Estimate</Button>
+                                <Button variant="contained" className={classes.estimateButton}>Free Estimate</Button>
                             </Grid>
                             <Grid item>
-                                <Button variant="outlined">Learn More
-                                    <ButtonArrow width={15} height={15} fill="red" />
+                                <Button variant="outlined" className={classes.learnButton}><span style={ {marginRight: 10} }>Learn More</span>
+                                    <ButtonArrow width={15} height={15} fill={theme.palette.primary.main} />
                                 </Button>
                             </Grid>
                         </Grid>

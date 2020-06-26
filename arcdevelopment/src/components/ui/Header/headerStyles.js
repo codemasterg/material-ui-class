@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/styles'
  * Header styles based on the theme setup in App.js
  */
 export default makeStyles((theme) => ({
+    // The toolbar needs margins so that content on the page under the toolbar is not hidden behind it.
     toolbarMargin: {
         marginBottom: "8em",
         [theme.breakpoints.down("md")]: {
@@ -43,10 +44,14 @@ export default makeStyles((theme) => ({
         borderRadius: "50px",
         margin: "0 50px 0 25px",
         height: "45px",
+        "&:hover": {
+            // by default hover results in light grey.  note primary and secondary support a "light" option
+            backgroundColor: theme.palette.secondary.light,
+        }
     },
 
     servicesMenu: {
-        backgroundColor: theme.palette.common.blue,
+        backgroundColor: theme.palette.common.green,
         color: "white",
         // Since appbar style uses a higher z-index, must create margin for the services menu so items are not obscured by the appbar.
         marginTop: "5em",
@@ -74,7 +79,7 @@ export default makeStyles((theme) => ({
     },
 
     drawer: {
-        backgroundColor: theme.palette.common.blue,
+        backgroundColor: theme.palette.common.green,
 
     },
 
