@@ -7,44 +7,42 @@ const tabIndexToPathMap = {
         label: "Home",
     },
     1: {
-        path: "/services",
-        label: "Services",
+        path: "/experience",
+        label: "My Experience",
         submenuItems: [
-            // Services is repeated because popup menu obscures original services tab
             {
-                path: "/services",
-                label: "Services"
+                path: "/design",
+                label: "Architecture and Design"
             },
             {
-                path: "/customsoftware",
-                label: "Custom Software Development"
+                path: "/languages",
+                label: "Programming Languages"
             },
             {
-                path: "/mobileapps",
-                label: "Mobile Applications"
+                path: "/frameworks",
+                label: "Software Frameworks"
             },
             {
-                path: "/websites",
-                label: "Websites"
-            }
+                path: "/webservices",
+                label: "Web Services"
+            },
+            {
+                path: "/databases",
+                label: "Databases"
+            },            
         ]
     },
     2: {
-        path: "/revolution",
-        label: "The Revolution",
+        path: "/projects",
+        label: "Projects",
     },
     3: {
         path: "/about",
-        label: "About Us",
+        label: "About Me",
     },
     4: {
         path: "/contact",
-        label: "Contact Us",
-    },
-    5: {
-        path: "/estimate",
-        label: "Free Estimate",
-        noMenu: true,   // do not show on menu, only drawer
+        label: "Contact",
     },
 }
 

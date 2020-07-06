@@ -59,7 +59,7 @@ export default makeStyles((theme) => ({
         // fontSize: "0.7 rem",
         height: 35,
         padding: 10,
-        marginTop: "1em",
+        marginTop: "1.5em",
         [theme.breakpoints.down("sm")]: {
             padding:  8,
         },
@@ -108,7 +108,7 @@ export default makeStyles((theme) => ({
             marginLeft: "2em",
         },
         [theme.breakpoints.down("sm")]: {
-            backgroundSize: "50em 50em",
+            backgroundSize: "54em 54em",
             marginLeft: "2em",
         },
     },

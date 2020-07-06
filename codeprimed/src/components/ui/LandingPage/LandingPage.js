@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { useTheme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
@@ -30,7 +31,7 @@ const LandingPage = (props) => {
                         <Typography align="center" className={classes.tagLine}>Turning Requirements into<br /> Production Ready Code</Typography>
                         <Grid container justify="center" className={classes.buttonContainer} spacing={1}>
                             <Grid item>
-                                <Button variant="contained" className={classes.backgroundButton}><span style={{ marginRight: 10 }}>My Background</span>
+                                <Button variant="contained" className={classes.backgroundButton} component={Link} to="/experience"><span style={{ marginRight: 10 }}>My Experience</span>
                                     <ButtonArrow width={15} height={15} fill={theme.palette.primary.main} />
                                 </Button>
                             </Grid>

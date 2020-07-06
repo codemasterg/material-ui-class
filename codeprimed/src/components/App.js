@@ -28,11 +28,13 @@ function App() {
         <Header tabIndex={tabIndex} setTabIndex={setTabIndex} menuItemSelectedIndex={menuItemSelectedIndex} setMenuItemSelectedIndex={setMenuItemSelectedIndex} />
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/services" component={() => <div style={ {height: "650px"}}>Services Page</div>} />
-          <Route exact path="/customsoftware" component={() => <div style={ {height: "650px"}}>Custom SW Page</div>} />
-          <Route exact path="/mobileapps" component={() => <div style={ {height: "650px"}}>Mobile Page</div>} />
-          <Route exact path="/websites" component={() => <div style={ {height: "650px"}}>Websites Page</div>} />
-          <Route exact path="/revolution" component={() => <div style={ {height: "650px"}}>Revolution Page</div>} />
+          <Route exact path="/experience" component={() => <div style={ {height: "650px"}}>Work Experience By Category and Year</div>} />
+          <Route exact path="/design" component={() => <div style={ {height: "650px"}}>Architecture and Design Page</div>} />
+          <Route exact path="/languages" component={() => <div style={ {height: "650px"}}>Langs Page</div>} />
+          <Route exact path="/frameworks" component={() => <div style={ {height: "650px"}}>Frameworks Page</div>} />
+          <Route exact path="/webservices" component={() => <div style={ {height: "650px"}}>Webservices Page</div>} />
+          <Route exact path="/databases" component={() => <div style={ {height: "650px"}}>Databases Page</div>} />
+          <Route exact path="/projects" component={() => <div style={ {height: "650px"}}>Past Projects Page</div>} />
           <Route exact path="/about" component={() => <div style={ {height: "650px"}}>About Page</div>} />
           <Route exact path="/contact" component={() => <div style={ {height: "650px"}}>Contact Page</div>} />
           <Route exact path="/estimate" component={() => <div style={ {height: "650px"}}>Estimate Page</div>} />

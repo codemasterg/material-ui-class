@@ -108,22 +108,20 @@ const Header = (props) => {
     const tabs = (
         <Fragment>
             <Tabs value={props.tabIndex} onChange={handleChange} className={classes.tabContainer}>
-                {/* Services has a sub-menu, esitmate is implemented as button on the menu, but is a regular drawer item */}
+                {/* Experiences has a sub-menu, estimate is implemented as button on the menu, but is a regular drawer item */}
                 {Object.values(tabIndexToPathMap).map((tab, index) => (
-                    tab.path === "/services" ?
+                    tab.path === "/experience" ?
                         <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path}
                             label={tabIndexToPathMap[index].label}
                             aria-owns={menuAnchorEl ? "service-items" : undefined}
                             aria-haspopup={menuAnchorEl ? true : undefined}
                             onMouseOver={event => handleMenuClick(event)}
-                        /> : tab.path !== "/estimate" ?
-                            <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path} label={tabIndexToPathMap[index].label} /> : null
+                        /> 
+                           : <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path} label={tabIndexToPathMap[index].label} /> 
                 ))}
-
+                {/* set a right margin so last menu item is not jammed against the window's edge */}
+                <span style={ {marginRight: "2em"} }></span>  
             </Tabs>
-            <Button variant="contained" color="secondary" component={Link} to={tabIndexToPathMap[5].path} className={classes.ovalButton}>
-                {tabIndexToPathMap[5].label}
-            </Button>
 
             {/* Create services submenu using aria-owns ID. Note how mouse leave must be handled
                         as a menu list property while mouse over is simply a direct property of Tab (above). */}
