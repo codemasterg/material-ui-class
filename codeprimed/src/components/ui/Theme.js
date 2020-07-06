@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const codeGreen = "#27AE60";
 
-const codeOrange = "#ff312e";
+const codeRedMud = "#ae3427";
 
 const codeGrey = "#868686";
 
@@ -13,7 +13,7 @@ export default createMuiTheme({
     palette: {
         common: {
             green: `${codeGreen}`,
-            orange: `${codeOrange}`
+            redMud: `${codeRedMud}`
         },
 
         primary: {
@@ -21,7 +21,7 @@ export default createMuiTheme({
         },
 
         secondary: {
-            main: `${codeOrange}`
+            main: `${codeRedMud}`
         }
     },
     typography: {
@@ -41,6 +41,12 @@ export default createMuiTheme({
             fontFamily: "Raleway",
             fontWeight: 700,
             fontSize: "2.7rem",
+            color: codeGreen,
+        },
+        h3: {
+            fontFamily: "Raleway",
+            fontWeight: 700,
+            fontSize: "2.4rem", 
             color: codeGreen,
         },
         h4: {

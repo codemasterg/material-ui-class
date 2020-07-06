@@ -24,11 +24,12 @@ export default makeStyles((theme) => ({
     },
 
     tagLine: {
-        ...theme.typography.h2,
+        ...theme.typography.h3,
         marginBottom: "1em",
         marginTop: "1em",
         [theme.breakpoints.down("sm")]: {
             ...theme.typography.h4,
+            fontSize: "1.5rem",
         }
 
     },

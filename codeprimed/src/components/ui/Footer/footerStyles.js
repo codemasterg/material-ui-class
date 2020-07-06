@@ -40,7 +40,7 @@ export default makeStyles((theme) => ({
     },
 
     footerGridItem: {
-        margin: "3em",
+        margin: "2em",
     },
 
     icon: {
