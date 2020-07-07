@@ -15,6 +15,11 @@ export default makeStyles((theme) => ({
             fontSize: "1.5rem",
         }
     },
+    experienceCard: {
+        boxShadow: theme.shadows[8],
+        borderRadius: 15,
+        padding: ".5em", 
+    },
 
     experienceDetails: {
         

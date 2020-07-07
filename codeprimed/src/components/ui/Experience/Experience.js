@@ -9,6 +9,8 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Avatar from '@material-ui/core/Avatar';
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 
 import experienceStyles from './experienceStyles'
 
@@ -26,7 +28,14 @@ const Experience = (props) => {
                         <Typography className={classes.experienceSummary}>Architecture and Design</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography className={classes.experienceDetails}>Architecture and Design Card Goes Here</Typography>
+                        <Card  className={classes.experienceCard}> 
+                            <CardContent>
+                            <Typography className={classes.experienceDetails}>Diverse expertise includes full lifecycle object oriented software 
+                            development of enterprise systems entailing N-tier web applications, web services, information assurance, and databases.  Architected 
+                            and lead the development of a high availability, scalable and transactional message based system for a national biometrics capability.
+                            </Typography>
+                            </CardContent>
+                        </Card>
                     </AccordionDetails>
                 </Accordion>
                 <Accordion>

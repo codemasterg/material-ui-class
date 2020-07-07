@@ -18,65 +18,41 @@ const Footer = (props) => {
             <Hidden mdDown>
                 <Grid container justify="center" className={classes.footerContainer}>
                     <Grid item className={classes.footerGridItem} >
-                        <Grid container direction="column" spacing={2}>
+                        <Grid container direction="column" spacing={1}>
                             <Grid item component={Link} onClick={() => props.setTabIndex(0)} to="/" className={classes.footerLink}>
                                 Home
                         </Grid>
                         </Grid>
                     </Grid>
-                    {/* Services Column */}
+                    {/* Experience Column */}
                     <Grid item className={classes.footerGridItem}>
-                        <Grid container direction="column" spacing={2}>
-                            <Grid item component={Link} onClick={() => { props.setTabIndex(1); props.setMenuItemSelectedIndex(0) }} to="/services" className={classes.footerLink}>
-                                Services
+                        <Grid container direction="column" spacing={1}>
+                            <Grid item component={Link} onClick={() => { props.setTabIndex(1); props.setMenuItemSelectedIndex(0) }} to="/experience" className={classes.footerLink}>
+                                Experience
+                            </Grid>
                         </Grid>
-                            <Grid item component={Link} onClick={() => { props.setTabIndex(1); props.setMenuItemSelectedIndex(1) }} to="/customsoftware" className={classes.footerLink}>
-                                Custom Sofware Development
-                        </Grid>
-                            <Grid item component={Link} onClick={() => { props.setTabIndex(1); props.setMenuItemSelectedIndex(2) }} to="/mobileapps" className={classes.footerLink}>
-                                Mobile App Development
-                        </Grid>
-                            <Grid item component={Link} onClick={() => { props.setTabIndex(1); props.setMenuItemSelectedIndex(3) }} to="/websites" className={classes.footerLink}>
-                                Website Development
-                        </Grid>
+                    </Grid>
+                    {/* Projects */}
+                    <Grid item className={classes.footerGridItem}>
+                        <Grid container direction="column" spacing={1}>
+                            <Grid item component={Link} onClick={() => props.setTabIndex(2)} to="/projects" className={classes.footerLink}>
+                                Projects
+                            </Grid>
                         </Grid>
                     </Grid>
                     {/* Other links */}
                     <Grid item className={classes.footerGridItem}>
-                        <Grid container direction="column" spacing={2}>
-                            <Grid item component={Link} onClick={() => props.setTabIndex(2)} to="/revolution" className={classes.footerLink}>
-                                The Revolution
-                        </Grid>
-                            <Grid item component={Link} onClick={() => props.setTabIndex(2)} to="/revolution" className={classes.footerLink}>
-                                Vision
-                        </Grid>
-                            <Grid item component={Link} onClick={() => props.setTabIndex(2)} to="/revolution" className={classes.footerLink}>
-                                Technology
-                        </Grid>
-                            <Grid item component={Link} to="/revolution" className={classes.footerLink}>
-                                Process
-                        </Grid>
+                        <Grid container direction="column" spacing={1}>
+                            <Grid item component={Link} onClick={() => props.setTabIndex(3)} to="/about" className={classes.footerLink}>
+                                About
+                            </Grid>
                         </Grid>
                     </Grid>
                     {/* Other links */}
                     <Grid item className={classes.footerGridItem}>
-                        <Grid container direction="column" spacing={2}>
-                            <Grid item component={Link} onClick={() => props.setTabIndex(3)} to="/about" className={classes.footerLink}>
-                                About Us
-                        </Grid>
-                            <Grid item component={Link} onClick={() => props.setTabIndex(3)} to="/about" className={classes.footerLink}>
-                                History
-                        </Grid>
-                            <Grid item component={Link} onClick={() => props.setTabIndex(3)} to="/about" className={classes.footerLink}>
-                                Team
-                        </Grid>
-                        </Grid>
-                    </Grid>
-                    {/* Other links */}
-                    <Grid item className={classes.footerGridItem}>
-                        <Grid container direction="column" spacing={2}>
+                        <Grid container direction="column" spacing={1}>
                             <Grid item component={Link} onClick={() => props.setTabIndex(4)} to="/contact" className={classes.footerLink}>
-                                Contact Us
+                                Contact
                         </Grid>
                         </Grid>
                     </Grid>

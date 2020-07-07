@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     footer: {
         backgroundColor: theme.palette.common.green,
         width: "100%",
-        height: "12em",
+        height: "8em",
         zIndex: theme.zIndex.modal + 1,
         // even though this is the default position, must set it in order to zIndex to work
         position: "relative",
@@ -19,7 +19,7 @@ export default makeStyles((theme) => ({
 
     adornment: {
         width: "10em",
-        verticalAlign: "bottom",
+        marginTop: "1em",
         [theme.breakpoints.down("md")]: {
             width: "8em",
         },
@@ -29,6 +29,7 @@ export default makeStyles((theme) => ({
     },
     footerContainer: {
         position: "absolute",
+        marginTop: "2em",
     },
 
     footerLink: {
@@ -40,7 +41,7 @@ export default makeStyles((theme) => ({
     },
 
     footerGridItem: {
-        margin: "2em",
+        margin: "1em",
     },
 
     icon: {
@@ -63,6 +64,7 @@ export default makeStyles((theme) => ({
         display: "flex",
         position: "absolute",
         right: "1.5em",
+        marginTop: "-3em",
         [theme.breakpoints.down("md")]: {
             right: "0.6em",
             marginTop: "-5em"
