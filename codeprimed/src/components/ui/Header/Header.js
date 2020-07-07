@@ -96,7 +96,14 @@ const Header = (props) => {
      */
     const handleMenuClick = (event) => {
         setMenuAnchorEl(event.currentTarget);
-        setMenuOpen(true);
+
+        let path = event.currentTarget.getAttribute("href");
+        if (path !== "/experience") {
+            setMenuOpen(false);  // make sure that the experiences sub-munu is always closed if another menu item is clicked
+        }
+        else {
+            setMenuOpen(!menuOpen);
+        }
     }
 
     const handleMenuClose = (event) => {
@@ -113,34 +120,33 @@ const Header = (props) => {
                     tab.path === "/experience" ?
                         <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path}
                             label={tabIndexToPathMap[index].label}
-                            aria-owns={menuAnchorEl ? "service-items" : undefined}
+                            aria-owns={menuAnchorEl ? "experience-items" : undefined}
                             aria-haspopup={menuAnchorEl ? true : undefined}
-                            onMouseOver={event => handleMenuClick(event)}
-                        /> 
-                           : <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path} label={tabIndexToPathMap[index].label} /> 
+                            onClick={event => handleMenuClick(event)}
+                        />
+                        : <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path} label={tabIndexToPathMap[index].label} onClick={event => handleMenuClick(event)} />
                 ))}
-                {/* set a right margin so last menu item is not jammed against the window's edge */}
-                <span style={ {marginRight: "2em"} }></span>  
             </Tabs>
 
-            {/* Create services submenu using aria-owns ID. Note how mouse leave must be handled
-                        as a menu list property while mouse over is simply a direct property of Tab (above). */}
-            <Menu id="service-items"
+            {/* Create experiences submenu using aria-owns ID. Note how mouse leave must be handled
+                as a menu list property while mouse over is simply a direct property of Tab (above). */}
+            <Menu id="experience-items"
                 anchorEl={menuAnchorEl}
                 open={menuOpen}
                 onClose={handleMenuClose}
                 // elevation={0}
                 MenuListProps={{ onMouseLeave: handleMenuClose }}
                 // paper is the underlying mui css style used by Menu, see API doc
-                classes={{ paper: classes.servicesMenu }}>
+                classes={{ paper: classes.experienceMenu }}>
 
                 {
                     tabIndexToPathMap[1].submenuItems.map((item, index) => (
 
                         <MenuItem key={item.path} component={Link} to={item.path}
-                            onClick={() => { handleMenuClose(); props.setTabIndex(1); props.setMenuItemSelectedIndex(index) }}
-                            classes={{ root: classes.serviceMenuItem }}
-                            selected={index === props.menuItemSelectedIndex && props.tabIndex === 1}>{item.label}
+                            onClick={() => { handleMenuClose(); }}
+                            classes={{ root: classes.experienceMenuItem }}
+                        // selected={index === props.menuItemSelectedIndex && props.tabIndex === 1} 
+                        >{item.label}
                         </MenuItem>
 
                     ))

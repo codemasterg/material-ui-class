@@ -24,7 +24,7 @@ export default makeStyles((theme) => ({
     },
 
     tagLine: {
-        ...theme.typography.h3,
+        ...theme.typography.h2,
         marginBottom: "1em",
         marginTop: "1em",
         [theme.breakpoints.down("sm")]: {
@@ -118,9 +118,12 @@ export default makeStyles((theme) => ({
         boxShadow: theme.shadows[8],
         borderRadius: 15,
         padding: "2em",
+        marginTop: "-6em",
+        // marginLeft: "2em",
         [theme.breakpoints.down("sm")]: {
             padding: "1em",
             marginRight: ".5em",
+            marginTop: "0em",
         }
     },
 }));

@@ -83,7 +83,7 @@ const Footer = (props) => {
                 </Grid>
             </Hidden>
             {/* Since I want the social media icons to appear in the same row as the grid above, but they are never hidden
-                must use divs.  If another Grid is used and justify is flex-end, the the links above will not be clickable
+                must use divs.  If another Grid is used and justify is flex-end, then the links above will not be clickable
                 because a flex-end grid here would sit on top of and of the row item in line with the SM icons. */}
             <img alt="Footer" src={footerAdornment} className={classes.adornment} />
             <div className={classes.socialContainer} >
@@ -91,10 +91,10 @@ const Footer = (props) => {
                 <a href="https://www.facebook.com" rel="noopener noreferrer" target="_blank">
                     <img alt="facebook logo" src={facebook} className={classes.icon} />
                 </a>
-                <a item component={"a"} href="https://www.twitter.com" rel="noopener noreferrer" target="_blank">
+                <a href="https://www.twitter.com" rel="noopener noreferrer" target="_blank">
                     <img alt="twitter logo" src={twitter} className={classes.icon} />
                 </a>
-                <a item component={"a"} href="https://www.instagram.com" rel="noopener noreferrer" target="_blank">
+                <a href="https://www.instagram.com" rel="noopener noreferrer" target="_blank">
                     <img alt="instagrram logo" src={instagram} className={classes.icon} />
                 </a>
             </div>

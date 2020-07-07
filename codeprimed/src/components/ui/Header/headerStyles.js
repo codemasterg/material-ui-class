@@ -31,6 +31,7 @@ export default makeStyles((theme) => ({
 
     tabContainer: {
         marginLeft: "auto",
+        marginRight: "2em",
     },
 
     tab: {
@@ -50,14 +51,14 @@ export default makeStyles((theme) => ({
         }
     },
 
-    servicesMenu: {
+    experienceMenu: {
         backgroundColor: theme.palette.common.green,
         color: "white",
         // Since appbar style uses a higher z-index, must create margin for the services menu so items are not obscured by the appbar.
         marginTop: "5em",
     },
 
-    serviceMenuItem: {
+    experienceMenuItem: {
         // Apply consistent tab styling to service menu items as well
         ...theme.typography.tab,
         opacity: 0.7,
@@ -80,6 +81,7 @@ export default makeStyles((theme) => ({
 
     drawer: {
         backgroundColor: theme.palette.common.green,
+        height: "auto"
 
     },
 

@@ -5,7 +5,8 @@ import { ThemeProvider } from '@material-ui/styles';
 import Header from './ui/Header/Header';
 import Footer from './ui/Footer/Footer';
 import theme from './ui/Theme';
-import LandingPage from './ui/LandingPage/LandingPage'
+import LandingPage from './ui/LandingPage/LandingPage';
+import Experience from './ui/Experience/Experience';
 
 /**
  * Dependencies:
@@ -28,7 +29,7 @@ function App() {
         <Header tabIndex={tabIndex} setTabIndex={setTabIndex} menuItemSelectedIndex={menuItemSelectedIndex} setMenuItemSelectedIndex={setMenuItemSelectedIndex} />
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/experience" component={() => <div style={ {height: "650px"}}>Work Experience By Category and Year</div>} />
+          <Route exact path="/experience" component={Experience} />
           <Route exact path="/design" component={() => <div style={ {height: "650px"}}>Architecture and Design Page</div>} />
           <Route exact path="/languages" component={() => <div style={ {height: "650px"}}>Langs Page</div>} />
           <Route exact path="/frameworks" component={() => <div style={ {height: "650px"}}>Frameworks Page</div>} />

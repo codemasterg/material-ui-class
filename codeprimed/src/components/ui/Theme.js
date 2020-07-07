@@ -31,11 +31,11 @@ export default createMuiTheme({
             fontSize: "1rem",
             fontWeight: "700",
         },
-        estimate: {
-            fontFamily: "Pacifico",
-            fontSize: "1rem",
+        handwrittenTitle: {
+            fontFamily: "Dancing Script",
+            fontSize: "2rem",
             textTransform: "none",
-            color: "white",
+            color: codeRedMud,
         },
         h2: {
             fontFamily: "Raleway",
