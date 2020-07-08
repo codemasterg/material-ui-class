@@ -64,38 +64,38 @@ const Experience = (props) => {
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#programmingPanel'} onChange={handleChange('#programmingPanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar ref={scrollRef} className={classes.programmingAvatar}>P</Avatar>
+                        <Avatar  ref={scrollRef}  className={classes.programmingAvatar}>P</Avatar>
                         <Typography className={classes.experienceSummary}>Programming</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <ProgrammingCard />
+                        <ProgrammingCard/>
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#softwarePanel'} onChange={handleChange('#softwarePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar ref={scrollRef} className={classes.softwareAvatar}>S</Avatar>
+                        <Avatar className={classes.softwareAvatar}>S</Avatar>
                         <Typography className={classes.experienceSummary}>Software Frameworks</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                       <FrameworksCard />
+                       <FrameworksCard ref={scrollRef} />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#webservicePanel'} onChange={handleChange('#webservicePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar ref={scrollRef} className={classes.webservicesAvatar}>W</Avatar>
+                        <Avatar className={classes.webservicesAvatar}>W</Avatar>
                         <Typography className={classes.experienceSummary}>Web Services and Cloud</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                       <WebServicesCard />
+                       <WebServicesCard ref={scrollRef} />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#databasePanel'} onChange={handleChange('#databasePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar ref={scrollRef} className={classes.databasesAvatar}>D</Avatar>
+                        <Avatar className={classes.databasesAvatar}>D</Avatar>
                         <Typography className={classes.experienceSummary}>Databases</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                       <DatabasesCard />
+                       <DatabasesCard ref={scrollRef} />
                     </AccordionDetails>
                 </Accordion>
             </Grid>
