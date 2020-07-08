@@ -15,6 +15,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import experienceStyles from './experienceStyles'
+import ArchitectureCard from './ArchitectureCard';
 
 const Experience = (props) => {
     const classes = experienceStyles();
@@ -33,7 +34,6 @@ const Experience = (props) => {
     // function: called with panelName, and returns a function that takes an event and panel's state
     // so that the return value can be used as the change handler.  Taken from the material-ui Accordion examples.
     const handleChange = (panelName) => (event, isExpanded) => {
-console.log(props.history);
         // update URL hash with given panel name so that on a page reload the panel remains open
         if(isExpanded) {
             props.history.replace(panelName);
@@ -54,55 +54,7 @@ console.log(props.history);
                         <Typography className={classes.experienceSummary}>Architecture and Design</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Card className={classes.experienceCard}>
-                            <CardContent>
-                                <Typography className={classes.listItemHeader}>Extensive experience in software design and architecture:</Typography>
-                                <List>
-                                    <ListItem alignItems="flex-start">
-                                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>OOA&D</Typography>}
-                                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Extensive object oriented analysis and
-                                            design work for large scale enterprise systems: network management, biometrics, web applications, analytics, malware.
-                                             </Typography>}>
-
-                                        </ListItemText>
-                                    </ListItem>
-                                    <Divider variant="fullWidth" component="li" />
-                                    <ListItem alignItems="flex-start">
-                                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Messaging Systems</Typography>}
-                                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>ReST and JMS based messaging systems
-                                            (using queues, topics, xa-transations).  Event subscription and publication.
-                                             </Typography>}>
-
-                                        </ListItemText>
-                                    </ListItem>
-                                    <Divider variant="fullWidth" component="li" />
-                                    <ListItem alignItems="flex-start">
-                                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Availability and Scalability</Typography>}
-                                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Load balanced architectures: ReST
-                                            based web services and web UIs, dynamic JMS message router.  Redudant nodes (hot standby, failover).
-                                             </Typography>}>
-                                        </ListItemText>
-                                    </ListItem>
-                                    <Divider variant="fullWidth" component="li" />
-                                    <ListItem alignItems="flex-start">
-                                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Data Modeling</Typography>}
-                                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Large scale relational models, NoSQL key-value,
-                                            ORMs, object data models.
-                                             </Typography>}>
-                                        </ListItemText>
-                                    </ListItem>
-                                    <Divider variant="fullWidth" component="li" />
-                                    <ListItem alignItems="flex-start">
-                                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Concurrency</Typography>}
-                                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Multithreading, thread pools, synchronization,
-                                            asynchronous processing.
-                                             </Typography>}>
-                                        </ListItemText>
-                                    </ListItem>
-                                    <Divider variant="fullWidth" component="li" />
-                                </List>
-                            </CardContent>
-                        </Card>
+                        <ArchitectureCard />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#programmingPanel'} onChange={handleChange('#programmingPanel')}>
