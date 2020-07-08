@@ -20,28 +20,28 @@ const FrameworksCard = () => {
                 <Typography className={classes.listItemHeader}>Software Frameworks and Libraries</Typography>
                 <List>
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Spring and Spring Boot 5 years</Typography>}
+                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Spring and Spring Boot (5 yr)</Typography>}
                             secondary={<Typography variant="inherit" className={classes.experienceDetails}>Currently developing enterprise web services using
                             Spring Boot 2.1.5 (Spring AOP, Configuration and Profiles, Event Listeners, Spring Data, Security).</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Java EE 5 years</Typography>}
+                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Java EE (5 yr)</Typography>}
                             secondary={<Typography variant="inherit" className={classes.experienceDetails}>JEE 5 / EJB3 (Stateless session
                             beans, MDBs, XA transactions, CDI).</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Hibernate / JPA 8 years</Typography>}
+                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Hibernate / JPA (8 yr)</Typography>}
                             secondary={<Typography variant="inherit" className={classes.experienceDetails}>All manner of queries and mapping, integration
                             with JDBC connection pools, used with MySQL, Oracle DBs.</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>React and Material-UI 6 months</Typography>}
+                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>React and Material-UI (6 mo)</Typography>}
                             secondary={<Typography variant="inherit" className={classes.experienceDetails}>2020 Coursework from UDemy:&nbsp; 
                             <a href="https://www.udemy.com/course/react-the-complete-guide-incl-redux/" target="_blank" rel="noopener noreferrer" style={ {textDecoration: "none"} }>
                                 React - The Complete Guide (Hooks, React Router, Redux)
@@ -54,7 +54,7 @@ const FrameworksCard = () => {
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Lucene / Elastic 4 years</Typography>}
+                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Lucene / Elastic (4 yr)</Typography>}
                             secondary={<Typography variant="inherit" className={classes.experienceDetails}>Implemented custom search and support
                             for "more like this" using Lucene API, migrated to Elastic for scalability and availability.</Typography>}>
                         </ListItemText>
@@ -66,7 +66,7 @@ const FrameworksCard = () => {
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Docker and Swarm 1 month</Typography>}
+                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Docker and Swarm (1 mo)</Typography>}
                             secondary={<Typography variant="inherit" className={classes.experienceDetails}>2020 Coursework from UDemy:&nbsp;
                             <a href="https://www.udemy.com/course/docker-mastery/" target="_blank" rel="noopener noreferrer" style={ {textDecoration: "none"} }>
                                 Docker Mastery: with Kubernetes + Swarm from a Docker Captain

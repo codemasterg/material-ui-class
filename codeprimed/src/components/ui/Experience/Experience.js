@@ -13,6 +13,7 @@ import experienceStyles from './experienceStyles'
 import ArchitectureCard from './ArchitectureCard';
 import ProgrammingCard from './ProgrammingCard';
 import FrameworksCard from './FrameworksCard';
+import WebServicesCard from './WebServicesCard';
 
 const Experience = (props) => {
     const classes = experienceStyles();
@@ -75,10 +76,10 @@ const Experience = (props) => {
                 <Accordion expanded={panelExpanded === '#webservicePanel'} onChange={handleChange('#webservicePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Avatar className={classes.webservicesAvatar}>W</Avatar>
-                        <Typography className={classes.experienceSummary}>Web Services</Typography>
+                        <Typography className={classes.experienceSummary}>Web Services and Cloud</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography className={classes.experienceDetails}>Web Services Card Goes Here</Typography>
+                       <WebServicesCard />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#databasePanel'} onChange={handleChange('#databasePanel')}>
