@@ -11,23 +11,23 @@ const tabIndexToPathMap = {
         label: "My Experience",
         submenuItems: [
             {
-                path: "/design",
+                path: "/experience#architecturePanel",
                 label: "Architecture and Design"
             },
             {
-                path: "/languages",
+                path: "/experience#programmingPanel",
                 label: "Programming Languages"
             },
             {
-                path: "/frameworks",
+                path: "/experience#softwarePanel",
                 label: "Software Frameworks"
             },
             {
-                path: "/webservices",
+                path: "/experience#webservicePanel",
                 label: "Web Services"
             },
             {
-                path: "/databases",
+                path: "/experience#databasePanel",
                 label: "Databases"
             },            
         ]

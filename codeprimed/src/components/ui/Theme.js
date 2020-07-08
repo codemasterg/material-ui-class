@@ -37,6 +37,11 @@ export default createMuiTheme({
             textTransform: "none",
             color: codeRedMud,
         },
+        cardText: {
+            fontFamily: "Roboto",
+            fontSize: "1rem",
+            textTransform: "none",
+        },
         h2: {
             fontFamily: "Raleway",
             fontWeight: 700,
@@ -60,6 +65,11 @@ export default createMuiTheme({
             fontWeight: 300,
             fontSize: "1.25rem", 
             color: codeGrey,
+        },
+        listItemHeader: {
+            fontWeight: 400,
+            fontSize: "1.1rem", 
+            color: codeGreen,
         },
         learnButton: {
             borderColor: codeGreen,

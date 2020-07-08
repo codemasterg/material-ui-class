@@ -22,7 +22,7 @@ export default makeStyles((theme) => ({
     },
 
     experienceDetails: {
-        
+        ...theme.typography.cardText,
     },
     architectureAvatar: {
         marginRight: "1em",
@@ -49,5 +49,8 @@ export default makeStyles((theme) => ({
         color: "white",
         backgroundColor: "#69737f",
     },
+    listItemHeader: {
+        ...theme.typography.listItemHeader,
+    }
     
 }));

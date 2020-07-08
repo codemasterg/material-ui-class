@@ -30,11 +30,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/experience" component={Experience} />
-          <Route exact path="/design" component={() => <div style={ {height: "650px"}}>Architecture and Design Page</div>} />
-          <Route exact path="/languages" component={() => <div style={ {height: "650px"}}>Langs Page</div>} />
-          <Route exact path="/frameworks" component={() => <div style={ {height: "650px"}}>Frameworks Page</div>} />
-          <Route exact path="/webservices" component={() => <div style={ {height: "650px"}}>Webservices Page</div>} />
-          <Route exact path="/databases" component={() => <div style={ {height: "650px"}}>Databases Page</div>} />
           <Route exact path="/projects" component={() => <div style={ {height: "650px"}}>Past Projects Page</div>} />
           <Route exact path="/about" component={() => <div style={ {height: "650px"}}>About Page</div>} />
           <Route exact path="/contact" component={() => <div style={ {height: "650px"}}>Contact Page</div>} />
