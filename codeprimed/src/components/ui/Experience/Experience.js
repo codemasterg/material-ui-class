@@ -7,15 +7,12 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Avatar from '@material-ui/core/Avatar';
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
+
 
 import experienceStyles from './experienceStyles'
 import ArchitectureCard from './ArchitectureCard';
+import ProgrammingCard from './ProgrammingCard';
+import FrameworksCard from './FrameworksCard';
 
 const Experience = (props) => {
     const classes = experienceStyles();
@@ -60,10 +57,10 @@ const Experience = (props) => {
                 <Accordion expanded={panelExpanded === '#programmingPanel'} onChange={handleChange('#programmingPanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Avatar className={classes.programmingAvatar}>P</Avatar>
-                        <Typography className={classes.experienceSummary}>Programming Languages</Typography>
+                        <Typography className={classes.experienceSummary}>Programming</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography className={classes.experienceDetails}>Programming Languages Card Goes Here</Typography>
+                        <ProgrammingCard />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#softwarePanel'} onChange={handleChange('#softwarePanel')}>
@@ -72,7 +69,7 @@ const Experience = (props) => {
                         <Typography className={classes.experienceSummary}>Software Frameworks</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography className={classes.experienceDetails}>Software Frameworks Card Goes Here</Typography>
+                       <FrameworksCard />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#webservicePanel'} onChange={handleChange('#webservicePanel')}>
