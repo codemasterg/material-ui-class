@@ -20,7 +20,7 @@ const WebServicesCard = () => {
                 <Typography className={classes.listItemHeader}>Web Services and Cloud</Typography>
                 <List>
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>ReSTful Services (5 yr)</Typography>}
+                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>ReST Services (5 yr)</Typography>}
                             secondary={<Typography variant="inherit" className={classes.experienceDetails}>Spring MVC / Spring Boot based,
                            using embedded Tomcat and Tomcat web server, Spring interceptors and security.</Typography>}>
                         </ListItemText>
