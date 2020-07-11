@@ -46,9 +46,9 @@ const WebServicesCard = () => {
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Big Data</Typography>}
+                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Big Data (1yr)</Typography>}
                             secondary={<Typography variant="inherit" className={classes.experienceDetails}>Apache Spark and Accumulo,
-                            ingest of billions of location data records (transformed from proprietary form to relational in a Spark cluster).
+                            ingest of billions of location data records (transformed from proprietary format to relational in a Spark cluster).
                             </Typography>}>
                         </ListItemText>
                     </ListItem>

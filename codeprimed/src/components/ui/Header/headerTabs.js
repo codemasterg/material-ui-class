@@ -33,8 +33,8 @@ const tabIndexToPathMap = {
         ]
     },
     2: {
-        path: "/projects",
-        label: "Projects",
+        path: "/resume",
+        label: "Resume",
     },
     3: {
         path: "/about",

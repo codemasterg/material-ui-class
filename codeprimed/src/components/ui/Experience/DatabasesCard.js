@@ -17,7 +17,7 @@ const DatabasesCard = () => {
     return (
         <Card className={classes.experienceCard}>
             <CardContent>
-                <Typography className={classes.listItemHeader}>Web Services and Cloud</Typography>
+                <Typography className={classes.listItemHeader}>SQL and NoSQL Databases</Typography>
                 <List>
                     <ListItem alignItems="flex-start">
                         <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>MySQL (6 yr)</Typography>}
@@ -46,8 +46,8 @@ const DatabasesCard = () => {
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
                         <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Apache Accumulo (1 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Defined compound key and data payloads definitions,
-                            implemented Accumulo server-side iterators.</Typography>}>
+                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Specified compound key and data payloads definitions,
+                            implemented Accumulo server-side iterators, client queries.</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
