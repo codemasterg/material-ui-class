@@ -15,8 +15,7 @@ import FrameworksCard from './FrameworksCard';
 import WebServicesCard from './WebServicesCard';
 import DatabasesCard from './DatabasesCard';
 
-// excute scroll to given object ref
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
+import {executeScroll} from '../../../utils/Scroll'
 
 const Skills = (props) => {
     const classes = skillsStyles();
@@ -24,7 +23,6 @@ const Skills = (props) => {
     // hooks
     const [panelExpanded, setPanelExpanded] = useState(false);
     const scrollRef = useRef(null);
-    const executeScroll = () => scrollToRef(scrollRef);
 
     // if Routing to this component with a hash in the URL, use hash value to expand the panel indicated by the hash, e.g. #programmingPanel
     useEffect(() => {
@@ -45,14 +43,14 @@ const Skills = (props) => {
             props.history.push(props.history.location.pathname);  // if user explicitly closes a panel, remove hash since no panels will be open
         }
         setPanelExpanded(isExpanded ? panelName : false);
-        executeScroll();  // scroll to clicked panel
+        executeScroll(scrollRef);  // scroll up to clicked panel
     }
 
     return (
         <Grid container direction="column" alignItems="center">
             <Typography className={classes.skillsTitle}>Skills Summary</Typography>
             <Grid container direction="column" >
-                <Accordion ref={scrollRef} expanded={panelExpanded === '#architecturePanel'} onChange={handleChange('#architecturePanel')}>
+                <Accordion expanded={panelExpanded === '#architecturePanel'} onChange={handleChange('#architecturePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Avatar ref={scrollRef} className={classes.architectureAvatar}>A</Avatar>
                         <Typography className={classes.skillsSummary}>Architecture and Design</Typography>
