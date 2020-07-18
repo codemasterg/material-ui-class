@@ -3,25 +3,25 @@ import { makeStyles } from '@material-ui/styles'
 
 
 /**
- * Styles for the <Experience> component
+ * Styles for the <Skills> component
  */
 export default makeStyles((theme) => ({
-    experienceTitle: {
+    skillsTitle: {
         ...theme.typography.h4,
     },
-    experienceSummary: {
+    skillsSummary: {
         ...theme.typography.handwrittenTitle,
         [theme.breakpoints.down("sm")]: {
             fontSize: "1.5rem",
         }
     },
-    experienceCard: {
+    skillsCard: {
         boxShadow: theme.shadows[8],
         borderRadius: 15,
         padding: ".5em", 
     },
 
-    experienceDetails: {
+    skillsDetails: {
         ...theme.typography.cardText,
     },
     architectureAvatar: {

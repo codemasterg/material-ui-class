@@ -6,7 +6,7 @@ import Header from './ui/Header/Header';
 import Footer from './ui/Footer/Footer';
 import theme from './ui/Theme';
 import LandingPage from './ui/LandingPage/LandingPage';
-import Experience from './ui/Experience/Experience';
+import Skills from './ui/Skills/Skills';
 import Resume from './ui/Resume/Resume'
 
 /**
@@ -30,7 +30,8 @@ function App() {
         <Header tabIndex={tabIndex} setTabIndex={setTabIndex} menuItemSelectedIndex={menuItemSelectedIndex} setMenuItemSelectedIndex={setMenuItemSelectedIndex} />
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/experience" component={Experience} />
+          <Route exact path="/skills" component={Skills} />
+          <Route exact path="/experience" component={() => <div style={ {height: "650px"}}>Experience Page</div>}/>
           <Route exact path="/resume" component={Resume} />
           <Route exact path="/about" component={() => <div style={ {height: "650px"}}>About Page</div>} />
           <Route exact path="/contact" component={() => <div style={ {height: "650px"}}>Contact Page</div>} />

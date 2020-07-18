@@ -7,40 +7,44 @@ const tabIndexToPathMap = {
         label: "Home",
     },
     1: {
-        path: "/experience",
-        label: "My Experience",
+        path: "/skills",
+        label: "Skills Summary",
         submenuItems: [
             {
-                path: "/experience#architecturePanel",
+                path: "/skills#architecturePanel",
                 label: "Architecture and Design"
             },
             {
-                path: "/experience#programmingPanel",
+                path: "/skills#programmingPanel",
                 label: "Programming Languages"
             },
             {
-                path: "/experience#softwarePanel",
+                path: "/skills#softwarePanel",
                 label: "Software Frameworks"
             },
             {
-                path: "/experience#webservicePanel",
+                path: "/skills#webservicePanel",
                 label: "Web Services"
             },
             {
-                path: "/experience#databasePanel",
+                path: "/skills#databasePanel",
                 label: "Databases"
             },            
         ]
     },
     2: {
+        path: "/experience",
+        label: "Experience",
+    },
+    3: {
         path: "/resume",
         label: "Resume",
     },
-    3: {
+    4: {
         path: "/about",
         label: "About",
     },
-    4: {
+    5: {
         path: "/contact",
         label: "Contact",
     },

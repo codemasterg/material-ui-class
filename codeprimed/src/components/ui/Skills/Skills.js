@@ -8,8 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Avatar from '@material-ui/core/Avatar';
 
-
-import experienceStyles from './experienceStyles'
+import skillsStyles from './skillsStyles'
 import ArchitectureCard from './ArchitectureCard';
 import ProgrammingCard from './ProgrammingCard';
 import FrameworksCard from './FrameworksCard';
@@ -19,8 +18,8 @@ import DatabasesCard from './DatabasesCard';
 // excute scroll to given object ref
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
 
-const Experience = (props) => {
-    const classes = experienceStyles();
+const Skills = (props) => {
+    const classes = skillsStyles();
 
     // hooks
     const [panelExpanded, setPanelExpanded] = useState(false);
@@ -51,12 +50,12 @@ const Experience = (props) => {
 
     return (
         <Grid container direction="column" alignItems="center">
-            <Typography className={classes.experienceTitle}>Experience Summary</Typography>
+            <Typography className={classes.skillsTitle}>Skills Summary</Typography>
             <Grid container direction="column" >
                 <Accordion ref={scrollRef} expanded={panelExpanded === '#architecturePanel'} onChange={handleChange('#architecturePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Avatar ref={scrollRef} className={classes.architectureAvatar}>A</Avatar>
-                        <Typography className={classes.experienceSummary}>Architecture and Design</Typography>
+                        <Typography className={classes.skillsSummary}>Architecture and Design</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <ArchitectureCard />
@@ -65,7 +64,7 @@ const Experience = (props) => {
                 <Accordion expanded={panelExpanded === '#programmingPanel'} onChange={handleChange('#programmingPanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Avatar  ref={scrollRef}  className={classes.programmingAvatar}>P</Avatar>
-                        <Typography className={classes.experienceSummary}>Programming</Typography>
+                        <Typography className={classes.skillsSummary}>Programming</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <ProgrammingCard/>
@@ -74,7 +73,7 @@ const Experience = (props) => {
                 <Accordion expanded={panelExpanded === '#softwarePanel'} onChange={handleChange('#softwarePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Avatar className={classes.softwareAvatar}>S</Avatar>
-                        <Typography className={classes.experienceSummary}>Software Frameworks</Typography>
+                        <Typography className={classes.skillsSummary}>Software Frameworks</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                        <FrameworksCard ref={scrollRef} />
@@ -83,7 +82,7 @@ const Experience = (props) => {
                 <Accordion expanded={panelExpanded === '#webservicePanel'} onChange={handleChange('#webservicePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Avatar className={classes.webservicesAvatar}>W</Avatar>
-                        <Typography className={classes.experienceSummary}>Web Services and Cloud</Typography>
+                        <Typography className={classes.skillsSummary}>Web Services and Cloud</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                        <WebServicesCard ref={scrollRef} />
@@ -92,7 +91,7 @@ const Experience = (props) => {
                 <Accordion expanded={panelExpanded === '#databasePanel'} onChange={handleChange('#databasePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Avatar className={classes.databasesAvatar}>D</Avatar>
-                        <Typography className={classes.experienceSummary}>Databases</Typography>
+                        <Typography className={classes.skillsSummary}>Databases</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                        <DatabasesCard ref={scrollRef} />
@@ -104,4 +103,4 @@ const Experience = (props) => {
     );
 }
 
-export default Experience;
+export default Skills;

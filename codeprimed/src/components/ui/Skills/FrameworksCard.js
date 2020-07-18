@@ -8,11 +8,11 @@ import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import experienceStyles from './experienceStyles'
+import skillsStyles from './skillsStyles'
 
 // Card that describes software frameworks experience
 const FrameworksCard = () => {
-    const classes = experienceStyles();
+    const classes = skillsStyles();
 
     return (
         <Card className={classes.experienceCard}>

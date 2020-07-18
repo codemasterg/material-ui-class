@@ -8,7 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import experienceStyles from './experienceStyles'
+import experienceStyles from './skillsStyles'
 
 // Card that describes web services experience
 const WebServicesCard = () => {

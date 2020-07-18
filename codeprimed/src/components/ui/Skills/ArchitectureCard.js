@@ -8,16 +8,16 @@ import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import experienceStyles from './experienceStyles'
+import skillsStyles from './skillsStyles'
 
 // Card that describes design and architecture experience
 const ArchitectureCard = () => {
-    const classes = experienceStyles();
+    const classes = skillsStyles();
 
     return (
         <Card className={classes.experienceCard}>
             <CardContent>
-                <Typography className={classes.listItemHeader}>Extensive experience in software design and architecture:</Typography>
+                <Typography className={classes.listItemHeader}>Expertise in Software Architecture and Design</Typography>
                 <List>
                     <ListItem alignItems="flex-start">
                         <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>OOA&D</Typography>}

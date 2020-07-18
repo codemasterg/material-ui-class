@@ -109,7 +109,7 @@ const LandingPage = (props) => {
                                         />
                                         </CardActionArea>
                                     </Grid>
-                                    <Button variant="contained" className={classes.resumeButton} component={Link} to="/resume">My Resume
+                                    <Button variant="contained" className={classes.resumeButton} component={Link} to="/skills">Skills Summary
                                         <ButtonArrow width={15} height={15} fill={theme.palette.primary.main} />
                                     </Button>
                                 </Grid>
