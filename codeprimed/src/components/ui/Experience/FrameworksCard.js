@@ -61,7 +61,7 @@ const FrameworksCard = () => {
                     </ListItem>
                     <ListItem alignItems="flex-start">
                         <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Maven (5), Gradle (1), Jenkins(4)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Large, multi module projects, CI/CD via Jenkins</Typography>}>
+                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Large, multi-module projects, CI/CD via Jenkins</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />

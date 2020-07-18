@@ -7,6 +7,7 @@ import Footer from './ui/Footer/Footer';
 import theme from './ui/Theme';
 import LandingPage from './ui/LandingPage/LandingPage';
 import Experience from './ui/Experience/Experience';
+import Resume from './ui/Resume/Resume'
 
 /**
  * Dependencies:
@@ -30,10 +31,9 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/experience" component={Experience} />
-          <Route exact path="/resume" component={() => <div style={ {height: "650px"}}>Resume Page</div>} />
+          <Route exact path="/resume" component={Resume} />
           <Route exact path="/about" component={() => <div style={ {height: "650px"}}>About Page</div>} />
           <Route exact path="/contact" component={() => <div style={ {height: "650px"}}>Contact Page</div>} />
-          <Route exact path="/estimate" component={() => <div style={ {height: "650px"}}>Estimate Page</div>} />
         </Switch>
         <Footer tabIndex={tabIndex} setTabIndex={setTabIndex} menuItemSelectedIndex={menuItemSelectedIndex} setMenuItemSelectedIndex={setMenuItemSelectedIndex} />
       </BrowserRouter>

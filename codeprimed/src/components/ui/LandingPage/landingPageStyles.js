@@ -59,7 +59,7 @@ export default makeStyles((theme) => ({
         // fontSize: "0.7 rem",
         height: 35,
         padding: 10,
-        marginTop: "1.5em",
+        marginTop: "2.5em",
         [theme.breakpoints.down("sm")]: {
             padding:  8,
         },
@@ -117,7 +117,7 @@ export default makeStyles((theme) => ({
         position: "absolute",  // place card on top of card background
         boxShadow: theme.shadows[8],
         borderRadius: 15,
-        padding: "2em",
+        padding: "4em",
         marginTop: "-6em",
         // marginLeft: "2em",
         [theme.breakpoints.down("sm")]: {
