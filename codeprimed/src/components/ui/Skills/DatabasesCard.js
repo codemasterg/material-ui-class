@@ -10,26 +10,26 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import skillsStyles from './skillsStyles'
 
-// Card that describes web services experience
+// Card that describes web services skills
 const DatabasesCard = () => {
     const classes = skillsStyles();
 
     return (
-        <Card className={classes.experienceCard}>
+        <Card className={classes.skillsCard}>
             <CardContent>
                 <Typography className={classes.listItemHeader}>SQL and NoSQL Databases</Typography>
                 <List>
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>MySQL (6 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Schema creation and maintenance using
+                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>MySQL (6 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Schema creation and maintenance using
                             MySQL Workbench, integrated with Spring and Spring Boot applications using Spring JDBC and Spring Data (JPA/Hibernate).
                             Deleveloped numerous queries (CRUD).</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Oracle (6 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Integrated application using
+                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>Oracle (6 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Integrated application using
                             Spring Data, Spring Boot configuration using JDBC connection pool.  Used SQLDeveloper to maintain schema.  
                             Deleveloped numerous queries (CRUD).
                             </Typography>}>
@@ -37,16 +37,16 @@ const DatabasesCard = () => {
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Lucene / Elastic (4 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Used Luecene (later converted to 
+                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>Lucene / Elastic (4 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Used Luecene (later converted to 
                             Elastic) to index contents of relational database to support keyword searches, and more like this searches.
                             </Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Apache Accumulo (1 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Specified compound key and data payloads definitions,
+                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>Apache Accumulo (1 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Specified compound key and data payloads definitions,
                             implemented Accumulo server-side iterators, client queries.</Typography>}>
                         </ListItemText>
                     </ListItem>

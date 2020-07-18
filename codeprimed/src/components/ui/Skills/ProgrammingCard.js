@@ -10,51 +10,51 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import skillsStyles from './skillsStyles'
 
-// Card that describes programming experience
+// Card that describes programming skills
 const ProgrammingCard = () => {
     const classes = skillsStyles();
 
     return (
-        <Card className={classes.experienceCard}>
+        <Card className={classes.skillsCard}>
             <CardContent>
                 <Typography className={classes.listItemHeader}>Programming and Languages</Typography>
                 <List>
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Java (15 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Currently developing using Java 11, using modern features:
+                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>Java (15 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Currently developing using Java 11, using modern features:
                              collections, streams, lambdas, optionals, and the latest NIO.</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Javascript (5 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>React JS applications (using JSX) as 
+                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>Javascript (5 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>React JS applications (using JSX) as 
                             well as a variety of custom JQuery based web applications.</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>SQL (15 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Complex queries, all join forms, sub selects,
+                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>SQL (15 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Complex queries, all join forms, sub selects,
                             schema definition and updates.</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Markup (5yr) and Data (15yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>HTML, CSS, JSON, XML and supporting libraries
+                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>Markup (5yr) and Data (15yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>HTML, CSS, JSON, XML and supporting libraries
                             (Jackson, JAXB, XSLT).</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>Scripting (3 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Bash, Groovy (for Gradle customization). </Typography>}>
+                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>Scripting (3 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Bash, Groovy (for Gradle customization). </Typography>}>
                         </ListItemText>
                     </ListItem>
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.experienceDetails}>C and C++ (10-15 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.experienceDetails}>Started career developing in C and C++
+                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>C and C++ (10-15 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Started career developing in C and C++
                             (satellite communications systems, network management systems).</Typography>}>
                         </ListItemText>
                     </ListItem>
