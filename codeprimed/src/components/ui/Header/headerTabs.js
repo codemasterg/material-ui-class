@@ -35,6 +35,24 @@ const tabIndexToPathMap = {
     2: {
         path: "/experience",
         label: "Experience",
+        submenuItems: [
+            {
+                path: "/experience#0to5",
+                label: "Past 5 Years"
+            },
+            {
+                path: "/experience#5to10",
+                label: "Past 5 to 10 Years"
+            },
+            {
+                path: "/experience#10to15",
+                label: "Past 10 to 15 Years"
+            },
+            {
+                path: "/experience#15toStart",
+                label: "Past 15 to Start of Career"
+            },
+        ]
     },
     3: {
         path: "/resume",

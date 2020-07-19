@@ -7,7 +7,8 @@ import Footer from './ui/Footer/Footer';
 import theme from './ui/Theme';
 import LandingPage from './ui/LandingPage/LandingPage';
 import Skills from './ui/Skills/Skills';
-import Resume from './ui/Resume/Resume'
+import Experience from './ui/Experience/Experience';
+import Resume from './ui/Resume/Resume';
 
 /**
  * Dependencies:
@@ -31,7 +32,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/skills" component={Skills} />
-          <Route exact path="/experience" component={() => <div style={ {height: "650px"}}>Experience Page</div>}/>
+          <Route exact path="/experience" component={Experience}/>
           <Route exact path="/resume" component={Resume} />
           <Route exact path="/about" component={() => <div style={ {height: "650px"}}>About Page</div>} />
           <Route exact path="/contact" component={() => <div style={ {height: "650px"}}>Contact Page</div>} />

@@ -8,17 +8,11 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Avatar from '@material-ui/core/Avatar';
 
-import skillsStyles from './skillsStyles'
-import ArchitectureCard from './ArchitectureCard';
-import ProgrammingCard from './ProgrammingCard';
-import FrameworksCard from './FrameworksCard';
-import WebServicesCard from './WebServicesCard';
-import DatabasesCard from './DatabasesCard';
-
+import experienceStyles from './experienceStyles'
 import {executeScroll} from '../../../utils/Scroll'
 
-const Skills = (props) => {
-    const classes = skillsStyles();
+const Experience = (props) => {
+    const classes = experienceStyles();
 
     // hooks
     const [panelExpanded, setPanelExpanded] = useState(false);
@@ -48,51 +42,44 @@ const Skills = (props) => {
 
     return (
         <Grid container direction="column" alignItems="center">
-            <Typography className={classes.skillsTitle}>Skills Summary</Typography>
+            <Typography className={classes.experienceTitle}>Work History</Typography>
             <Grid container direction="column" >
                 <Accordion expanded={panelExpanded === '#architecturePanel'} onChange={handleChange('#architecturePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar ref={scrollRef} className={classes.architectureAvatar}>A</Avatar>
-                        <Typography className={classes.skillsSummary}>Architecture and Design</Typography>
+                        <Avatar ref={scrollRef} className={classes.architectureAvatar}>5</Avatar>
+                        <Typography className={classes.experienceSummary}>Past 5 Years</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <ArchitectureCard />
+                       Past 5
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#programmingPanel'} onChange={handleChange('#programmingPanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar  ref={scrollRef}  className={classes.programmingAvatar}>P</Avatar>
-                        <Typography className={classes.skillsSummary}>Programming</Typography>
+                        <Avatar  ref={scrollRef}  className={classes.programmingAvatar}>10</Avatar>
+                        <Typography className={classes.experienceSummary}>Past 5 to 10 Years</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <ProgrammingCard/>
+                        Past 5 to 10
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#softwarePanel'} onChange={handleChange('#softwarePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar className={classes.softwareAvatar}>S</Avatar>
-                        <Typography className={classes.skillsSummary}>Software Frameworks</Typography>
+                        <Avatar className={classes.softwareAvatar}>15</Avatar>
+                        <Typography className={classes.experienceSummary}>Past 10 to 15 Years</Typography>
                     </AccordionSummary>
-                    <AccordionDetails ref={scrollRef} >
-                       <FrameworksCard />
+                    <AccordionDetails>
+                       {/* <FrameworksCard ref={scrollRef} /> */}
+                       Past 10 - 15
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#webservicePanel'} onChange={handleChange('#webservicePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar className={classes.webservicesAvatar}>W</Avatar>
-                        <Typography className={classes.skillsSummary}>Web Services and Cloud</Typography>
+                        <Avatar className={classes.webservicesAvatar}>15+</Avatar>
+                        <Typography className={classes.experienceSummary}>Past 15 to Start</Typography>
                     </AccordionSummary>
-                    <AccordionDetails ref={scrollRef} >
-                       <WebServicesCard />
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion expanded={panelExpanded === '#databasePanel'} onChange={handleChange('#databasePanel')}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar className={classes.databasesAvatar}>D</Avatar>
-                        <Typography className={classes.skillsSummary}>Databases</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails ref={scrollRef} >
-                       <DatabasesCard />
+                    <AccordionDetails>
+                       {/* <WebServicesCard ref={scrollRef} /> */}
+                       Past 15 to Start
                     </AccordionDetails>
                 </Accordion>
             </Grid>
@@ -101,4 +88,4 @@ const Skills = (props) => {
     );
 }
 
-export default Skills;
+export default Experience;

@@ -44,7 +44,7 @@ const Header = (props) => {
 
     // Hooks
     const [menuAnchorEl, setMenuAnchorEl] = useState(null);
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState([false, false, false]);   // padded so that this array aligns with 'tabIndexToPathMap' submenu def
 
     const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -94,21 +94,59 @@ const Header = (props) => {
     /**
      * Services submenu click handlers
      */
-    const handleMenuClick = (event) => {
+    const handleMenuClick = (event, tabIndex, tab) => {
         setMenuAnchorEl(event.currentTarget);
 
-        let path = event.currentTarget.getAttribute("href");
-        if (path !== "/skills") {
-            setMenuOpen(false);  // make sure that the skillss sub-munu is always closed if another menu item is clicked
+        let openStates = [...menuOpen];
+        openStates.fill(false);  // make sure that the sub-menus are always closed if another menu item is clicked
+        if (tab.hasOwnProperty('submenuItems')) {
+            openStates[tabIndex] = !menuOpen[tabIndex];  // toggle current state
         }
-        else {
-            setMenuOpen(!menuOpen);
-        }
+        setMenuOpen(openStates);
     }
 
     const handleMenuClose = (event) => {
         setMenuAnchorEl(null);
-        setMenuOpen(false);
+        let openStates = [...menuOpen];
+        openStates.fill(false);
+        setMenuOpen(openStates);
+    }
+
+    let tabWithSubmenu = (tab, tabIndex) => {
+        return (
+            <>
+                <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path}
+                    aria-owns={menuAnchorEl ? "submenu-" + tabIndex : undefined}
+                    aria-haspopup={menuAnchorEl ? true : undefined}
+                    label={tabIndexToPathMap[tabIndex].label}
+                    onClick={event => handleMenuClick(event, tabIndex, tab)}
+                />
+                {/* Create submenu using aria-owns ID. Note how mouse leave must be handled
+                as a menu list property while mouse over is simply a direct property of Tab (above). */}
+                <Menu key={tab.path + tabIndex} id={"submenu-" + tabIndex}
+                    anchorEl={menuAnchorEl}
+                    open={menuOpen[tabIndex]}
+                    onClose={handleMenuClose}
+                    // elevation={0}
+                    MenuListProps={{ onMouseLeave: handleMenuClose }}
+                    // paper is the underlying mui css style used by Menu, see API doc
+                    classes={{ paper: classes.skillsMenu }}>
+                    {
+                        tabIndexToPathMap[tabIndex].submenuItems.map((item, index) => (
+
+                            <MenuItem key={item.path} component={Link} to={item.path}
+                                onClick={() => { handleMenuClose(); }}
+                                classes={{ root: classes.skillsMenuItem }}
+                            // selected={index === props.menuItemSelectedIndex && props.tabIndex === 1} 
+                            >{item.label}
+                            </MenuItem>
+
+                        ))
+                    }
+                </Menu>
+            </>
+
+        );
     }
 
     // Only appears when medium and small screens are not used, see varibale 'isMediumToSmallScreen' in this file.
@@ -117,41 +155,13 @@ const Header = (props) => {
             <Tabs value={props.tabIndex} onChange={handleChange} className={classes.tabContainer}>
                 {/* Experiences has a sub-menu, estimate is implemented as button on the menu, but is a regular drawer item */}
                 {Object.values(tabIndexToPathMap).map((tab, index) => (
-                    tab.path === "/skills" ?
-                        <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path}
-                            label={tabIndexToPathMap[index].label}
-                            aria-owns={menuAnchorEl ? "skills-items" : undefined}
-                            aria-haspopup={menuAnchorEl ? true : undefined}
-                            onClick={event => handleMenuClick(event)}
-                        />
-                        : <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path} label={tabIndexToPathMap[index].label} onClick={event => handleMenuClick(event)} />
+                    tab.path === "/skills" || tab.path === "/experience" ?
+                        tabWithSubmenu(tab, index)
+                        : <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path} label={tabIndexToPathMap[index].label} onClick={event => handleMenuClick(event, index, tab)} />
                 ))}
             </Tabs>
 
-            {/* Create skillss submenu using aria-owns ID. Note how mouse leave must be handled
-                as a menu list property while mouse over is simply a direct property of Tab (above). */}
-            <Menu id="skills-items"
-                anchorEl={menuAnchorEl}
-                open={menuOpen}
-                onClose={handleMenuClose}
-                // elevation={0}
-                MenuListProps={{ onMouseLeave: handleMenuClose }}
-                // paper is the underlying mui css style used by Menu, see API doc
-                classes={{ paper: classes.skillsMenu }}>
 
-                {
-                    tabIndexToPathMap[1].submenuItems.map((item, index) => (
-
-                        <MenuItem key={item.path} component={Link} to={item.path}
-                            onClick={() => { handleMenuClose(); }}
-                            classes={{ root: classes.skillsMenuItem }}
-                        // selected={index === props.menuItemSelectedIndex && props.tabIndex === 1} 
-                        >{item.label}
-                        </MenuItem>
-
-                    ))
-                }
-            </Menu>
         </Fragment>
     )
 
@@ -172,7 +182,9 @@ const Header = (props) => {
 
                         <ListItem key={tab.path} divider button onClick={() => { setOpenDrawer(false); handleChange() }} selected={props.tabIndex === index}
                             component={Link} to={tabIndexToPathMap[index].path}>
-                            <ListItemText className={props.tabIndex === index ? `${classes.drawerItem} ${classes.drawerItemSelected}` : classes.drawerItem} > {tabIndexToPathMap[index].label}</ListItemText></ListItem>
+                            <ListItemText className={props.tabIndex === index ? `${classes.drawerItem} ${classes.drawerItemSelected}` : classes.drawerItem} > {tabIndexToPathMap[index].label}
+                            </ListItemText>
+                        </ListItem>
 
                     ))}
                 </List>
