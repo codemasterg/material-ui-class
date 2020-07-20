@@ -24,6 +24,14 @@ const Footer = (props) => {
                         </Grid>
                         </Grid>
                     </Grid>
+                    {/* Skills Summary Column */}
+                    <Grid item className={classes.footerGridItem}>
+                        <Grid container direction="column" spacing={1}>
+                            <Grid item component={Link} onClick={() => { props.setTabIndex(1); props.setMenuItemSelectedIndex(0) }} to="/skills" className={classes.footerLink}>
+                                Skills
+                            </Grid>
+                        </Grid>
+                    </Grid>
                     {/* Experience Column */}
                     <Grid item className={classes.footerGridItem}>
                         <Grid container direction="column" spacing={1}>
@@ -32,11 +40,11 @@ const Footer = (props) => {
                             </Grid>
                         </Grid>
                     </Grid>
-                    {/* Projects */}
+                    {/* Resume */}
                     <Grid item className={classes.footerGridItem}>
                         <Grid container direction="column" spacing={1}>
-                            <Grid item component={Link} onClick={() => props.setTabIndex(2)} to="/projects" className={classes.footerLink}>
-                                Projects
+                            <Grid item component={Link} onClick={() => props.setTabIndex(2)} to="/resume" className={classes.footerLink}>
+                                Resume
                             </Grid>
                         </Grid>
                     </Grid>

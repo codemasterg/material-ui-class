@@ -42,44 +42,44 @@ const Experience = (props) => {
 
     return (
         <Grid container direction="column" alignItems="center">
-            <Typography className={classes.experienceTitle}>Work History</Typography>
+            <Typography className={classes.experienceTitle}>Experience & Education</Typography>
             <Grid container direction="column" >
-                <Accordion expanded={panelExpanded === '#architecturePanel'} onChange={handleChange('#architecturePanel')}>
+                <Accordion expanded={panelExpanded === '#0to5'} onChange={handleChange('#0to5')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar ref={scrollRef} className={classes.architectureAvatar}>5</Avatar>
-                        <Typography className={classes.experienceSummary}>Past 5 Years</Typography>
+                        <Avatar ref={scrollRef} className={classes.architectureAvatar}>R</Avatar>
+                        <Typography className={classes.experienceSummary}>Recent</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                        Past 5
                     </AccordionDetails>
                 </Accordion>
-                <Accordion expanded={panelExpanded === '#programmingPanel'} onChange={handleChange('#programmingPanel')}>
+                <Accordion expanded={panelExpanded === '#5to15'} onChange={handleChange('#5to15')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar  ref={scrollRef}  className={classes.programmingAvatar}>10</Avatar>
-                        <Typography className={classes.experienceSummary}>Past 5 to 10 Years</Typography>
+                        <Avatar  ref={scrollRef}  className={classes.programmingAvatar}>M</Avatar>
+                        <Typography className={classes.experienceSummary}>Mid Career</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        Past 5 to 10
+                        Past 5 to 15
                     </AccordionDetails>
                 </Accordion>
-                <Accordion expanded={panelExpanded === '#softwarePanel'} onChange={handleChange('#softwarePanel')}>
+                <Accordion expanded={panelExpanded === '#15toBeginning'} onChange={handleChange('#15toBeginning')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar className={classes.softwareAvatar}>15</Avatar>
-                        <Typography className={classes.experienceSummary}>Past 10 to 15 Years</Typography>
+                        <Avatar className={classes.softwareAvatar}>E</Avatar>
+                        <Typography className={classes.experienceSummary}>Early Career</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                        {/* <FrameworksCard ref={scrollRef} /> */}
-                       Past 10 - 15
+                       Past 15 to Begining
                     </AccordionDetails>
                 </Accordion>
-                <Accordion expanded={panelExpanded === '#webservicePanel'} onChange={handleChange('#webservicePanel')}>
+                <Accordion expanded={panelExpanded === '#trainingAndEducation'} onChange={handleChange('#trainingAndEducation')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar className={classes.webservicesAvatar}>15+</Avatar>
-                        <Typography className={classes.experienceSummary}>Past 15 to Start</Typography>
+                        <Avatar className={classes.webservicesAvatar}>T</Avatar>
+                        <Typography className={classes.experienceSummary}>Training And Education</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                        {/* <WebServicesCard ref={scrollRef} /> */}
-                       Past 15 to Start
+                       Training & Education
                     </AccordionDetails>
                 </Accordion>
             </Grid>

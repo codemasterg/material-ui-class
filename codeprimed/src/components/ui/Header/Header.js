@@ -103,6 +103,7 @@ const Header = (props) => {
             openStates[tabIndex] = !menuOpen[tabIndex];  // toggle current state
         }
         setMenuOpen(openStates);
+        props.setTabIndex(tabIndex);  // ensure tab selected is highlighted and underlined
     }
 
     const handleMenuClose = (event) => {
@@ -116,14 +117,12 @@ const Header = (props) => {
         return (
             <>
                 <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path}
-                    aria-owns={menuAnchorEl ? "submenu-" + tabIndex : undefined}
-                    aria-haspopup={menuAnchorEl ? true : undefined}
                     label={tabIndexToPathMap[tabIndex].label}
                     onClick={event => handleMenuClick(event, tabIndex, tab)}
                 />
-                {/* Create submenu using aria-owns ID. Note how mouse leave must be handled
+                {/* Create submenu under this Tab. Note how mouse leave must be handled
                 as a menu list property while mouse over is simply a direct property of Tab (above). */}
-                <Menu key={tab.path + tabIndex} id={"submenu-" + tabIndex}
+                <Menu key={tab.path + tabIndex}
                     anchorEl={menuAnchorEl}
                     open={menuOpen[tabIndex]}
                     onClose={handleMenuClose}
@@ -137,7 +136,7 @@ const Header = (props) => {
                             <MenuItem key={item.path} component={Link} to={item.path}
                                 onClick={() => { handleMenuClose(); }}
                                 classes={{ root: classes.skillsMenuItem }}
-                            // selected={index === props.menuItemSelectedIndex && props.tabIndex === 1} 
+                            selected={index === props.menuItemSelectedIndex && props.tabIndex === 1} 
                             >{item.label}
                             </MenuItem>
 
@@ -152,10 +151,10 @@ const Header = (props) => {
     // Only appears when medium and small screens are not used, see varibale 'isMediumToSmallScreen' in this file.
     const tabs = (
         <Fragment>
-            <Tabs value={props.tabIndex} onChange={handleChange} className={classes.tabContainer}>
+            <Tabs value={props.tabIndex} onChange={handleChange} className={classes.tabContainer} >
                 {/* Experiences has a sub-menu, estimate is implemented as button on the menu, but is a regular drawer item */}
                 {Object.values(tabIndexToPathMap).map((tab, index) => (
-                    tab.path === "/skills" || tab.path === "/experience" ?
+                    tab.hasOwnProperty('submenuItems') ?
                         tabWithSubmenu(tab, index)
                         : <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path} label={tabIndexToPathMap[index].label} onClick={event => handleMenuClick(event, index, tab)} />
                 ))}

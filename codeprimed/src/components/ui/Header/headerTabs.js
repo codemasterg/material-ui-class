@@ -41,16 +41,16 @@ const tabIndexToPathMap = {
                 label: "Past 5 Years"
             },
             {
-                path: "/experience#5to10",
-                label: "Past 5 to 10 Years"
+                path: "/experience#5to15",
+                label: "Past 5 to 15 Years"
             },
             {
-                path: "/experience#10to15",
-                label: "Past 10 to 15 Years"
+                path: "/experience#15toBeginning",
+                label: "Past 15 to Beginning"
             },
             {
-                path: "/experience#15toStart",
-                label: "Past 15 to Start of Career"
+                path: "/experience#trainingAndEducation",
+                label: "Training and Education"
             },
         ]
     },
