@@ -11,6 +11,9 @@ import Avatar from '@material-ui/core/Avatar';
 import {getTabIndexFromPath} from '../Header/headerTabs';
 import cardStyles from '../CommonStyles/cardStyles'
 import {executeScroll} from '../../../utils/Scroll'
+import RecentExperienceCard from './RecentExperienceCard'
+import MidCareerExperienceCard from './MidCareerExperienceCard'
+import EarlyCareerExperienceCard from './EarlyCareerExperienceCard'
 
 const Experience = (props) => {
     const classes = cardStyles();
@@ -54,7 +57,7 @@ const Experience = (props) => {
                         <Typography className={classes.cardSummary}>Recent</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                       Past 5
+                       <RecentExperienceCard />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#5to15'} onChange={handleChange('#5to15')}>
@@ -63,7 +66,7 @@ const Experience = (props) => {
                         <Typography className={classes.cardSummary}>Mid Career</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        Past 5 to 15
+                        <MidCareerExperienceCard />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#15toBeginning'} onChange={handleChange('#15toBeginning')}>
@@ -73,7 +76,7 @@ const Experience = (props) => {
                     </AccordionSummary>
                     <AccordionDetails>
                        {/* <FrameworksCard ref={scrollRef} /> */}
-                       Past 15 to Begining
+                      <EarlyCareerExperienceCard />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#trainingAndEducation'} onChange={handleChange('#trainingAndEducation')}>
