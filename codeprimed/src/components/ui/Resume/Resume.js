@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Box from '@material-ui/core/Box';
 
 import { Document, Page } from "react-pdf/dist/entry.webpack";
 
-import resumeStyles from './resumeStyles'
+import {getTabIndexFromPath} from '../Header/headerTabs';
+import resumeStyles from './resumeStyles';
 /**
  * Using https://www.npmjs.com/package/react-pdf to display the PDF:
  * 
@@ -11,8 +12,14 @@ import resumeStyles from './resumeStyles'
  * 
  * @param {*} props 
  */
+
 const Resume = (props) => {
     const classes = resumeStyles();
+    const tabIndex = getTabIndexFromPath();
+
+    useEffect(() => {
+        props.setTabIndex(tabIndex);  // ensure tab for this component is highlighted
+    }, [tabIndex, props]);
 
     return (
         // TODO - this is ok for local dev, but need to:

@@ -21,7 +21,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import logo from '../../../assets/CP-logo-v1.svg'
 // import logo from '../../../assets/logo.svg'
 import headerStyles from './headerStyles'
-import tabIndexToPathMap from './headerTabs'
+import tabIndexToPathMap, {getTabIndexFromPath} from './headerTabs'
 
 function ElevationScroll(props) {
     const { children } = props;
@@ -55,16 +55,16 @@ const Header = (props) => {
          * @param {*} pathValue 
          */
         function getTabIndexByPath(object, pathValue) {
-            let key = Object.keys(object).find(key => object[key].path === pathValue);
+            let tabIndex = getTabIndexFromPath();
 
             // check for submenu items with a matching path
-            if (key === undefined) {
+            if (tabIndex === undefined) {
 
                 Object.keys(object).forEach((menuKey, index) => {
                     if (object[menuKey].submenuItems !== undefined) {
                         for (var i = 0; i < object[menuKey].submenuItems.length; i++) {
                             if (object[menuKey].submenuItems[i].path === pathValue) {
-                                key = menuKey;
+                                tabIndex = parseInt(menuKey);
                                 props.setMenuItemSelectedIndex(i);
                                 break;
                             }
@@ -72,7 +72,7 @@ const Header = (props) => {
                     }
                 });
             }
-            return (parseInt(key));
+            return tabIndex;
         }
 
         // use current URL to determine which tab should be selected following a page refresh

@@ -8,22 +8,26 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Avatar from '@material-ui/core/Avatar';
 
-import experienceStyles from './experienceStyles'
+import {getTabIndexFromPath} from '../Header/headerTabs';
+import cardStyles from '../CommonStyles/cardStyles'
 import {executeScroll} from '../../../utils/Scroll'
 
 const Experience = (props) => {
-    const classes = experienceStyles();
+    const classes = cardStyles();
 
     // hooks
     const [panelExpanded, setPanelExpanded] = useState(false);
     const scrollRef = useRef(null);
+
+    const tabIndex = getTabIndexFromPath();
 
     // if Routing to this component with a hash in the URL, use hash value to expand the panel indicated by the hash, e.g. #programmingPanel
     useEffect(() => {
         if (props.location.hash !== null) {
             setPanelExpanded(props.location.hash);
         }
-    }, [props.location.hash]);
+        props.setTabIndex(tabIndex);
+    }, [props, props.location.hash, tabIndex]);
 
     // Ensure only one Accordion panel is expanded at a time.  Note the use of a curried 
     // function: called with panelName, and returns a function that takes an event and panel's state
@@ -42,12 +46,12 @@ const Experience = (props) => {
 
     return (
         <Grid container direction="column" alignItems="center">
-            <Typography className={classes.experienceTitle}>Experience & Education</Typography>
+            <Typography className={classes.cardPageTitle}>Experience & Education</Typography>
             <Grid container direction="column" >
                 <Accordion expanded={panelExpanded === '#0to5'} onChange={handleChange('#0to5')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar ref={scrollRef} className={classes.architectureAvatar}>R</Avatar>
-                        <Typography className={classes.experienceSummary}>Recent</Typography>
+                        <Avatar ref={scrollRef} className={classes.firstAvatar}>R</Avatar>
+                        <Typography className={classes.cardSummary}>Recent</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                        Past 5
@@ -55,8 +59,8 @@ const Experience = (props) => {
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#5to15'} onChange={handleChange('#5to15')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar  ref={scrollRef}  className={classes.programmingAvatar}>M</Avatar>
-                        <Typography className={classes.experienceSummary}>Mid Career</Typography>
+                        <Avatar  ref={scrollRef}  className={classes.secondAvatar}>M</Avatar>
+                        <Typography className={classes.cardSummary}>Mid Career</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         Past 5 to 15
@@ -64,8 +68,8 @@ const Experience = (props) => {
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#15toBeginning'} onChange={handleChange('#15toBeginning')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar className={classes.softwareAvatar}>E</Avatar>
-                        <Typography className={classes.experienceSummary}>Early Career</Typography>
+                        <Avatar className={classes.thirdAvatar}>E</Avatar>
+                        <Typography className={classes.cardSummary}>Early Career</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                        {/* <FrameworksCard ref={scrollRef} /> */}
@@ -74,8 +78,8 @@ const Experience = (props) => {
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#trainingAndEducation'} onChange={handleChange('#trainingAndEducation')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar className={classes.webservicesAvatar}>T</Avatar>
-                        <Typography className={classes.experienceSummary}>Training And Education</Typography>
+                        <Avatar className={classes.fourthAvatar}>T</Avatar>
+                        <Typography className={classes.cardSummary}>Training And Education</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                        {/* <WebServicesCard ref={scrollRef} /> */}

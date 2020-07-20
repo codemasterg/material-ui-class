@@ -8,7 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Avatar from '@material-ui/core/Avatar';
 
-import skillsStyles from './skillsStyles'
+import {getTabIndexFromPath} from '../Header/headerTabs';
+import cardStyles from '../CommonStyles/cardStyles'
 import ArchitectureCard from './ArchitectureCard';
 import ProgrammingCard from './ProgrammingCard';
 import FrameworksCard from './FrameworksCard';
@@ -18,18 +19,21 @@ import DatabasesCard from './DatabasesCard';
 import {executeScroll} from '../../../utils/Scroll'
 
 const Skills = (props) => {
-    const classes = skillsStyles();
+    const classes = cardStyles();
 
     // hooks
     const [panelExpanded, setPanelExpanded] = useState(false);
     const scrollRef = useRef(null);
+
+    const tabIndex = getTabIndexFromPath();
 
     // if Routing to this component with a hash in the URL, use hash value to expand the panel indicated by the hash, e.g. #programmingPanel
     useEffect(() => {
         if (props.location.hash !== null) {
             setPanelExpanded(props.location.hash);
         }
-    }, [props.location.hash]);
+        props.setTabIndex(tabIndex);
+    }, [props, props.location.hash, tabIndex]);
 
     // Ensure only one Accordion panel is expanded at a time.  Note the use of a curried 
     // function: called with panelName, and returns a function that takes an event and panel's state
@@ -48,12 +52,12 @@ const Skills = (props) => {
 
     return (
         <Grid container direction="column" alignItems="center">
-            <Typography className={classes.skillsTitle}>Skills Summary</Typography>
+            <Typography className={classes.cardPageTitle}>Skills Summary</Typography>
             <Grid container direction="column" >
                 <Accordion expanded={panelExpanded === '#architecturePanel'} onChange={handleChange('#architecturePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar ref={scrollRef} className={classes.architectureAvatar}>A</Avatar>
-                        <Typography className={classes.skillsSummary}>Architecture and Design</Typography>
+                        <Avatar ref={scrollRef} className={classes.firstAvatar}>A</Avatar>
+                        <Typography className={classes.cardSummary}>Architecture and Design</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <ArchitectureCard />
@@ -61,8 +65,8 @@ const Skills = (props) => {
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#programmingPanel'} onChange={handleChange('#programmingPanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar  ref={scrollRef}  className={classes.programmingAvatar}>P</Avatar>
-                        <Typography className={classes.skillsSummary}>Programming</Typography>
+                        <Avatar  ref={scrollRef}  className={classes.secondAvatar}>P</Avatar>
+                        <Typography className={classes.cardSummary}>Programming</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <ProgrammingCard/>
@@ -70,8 +74,8 @@ const Skills = (props) => {
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#softwarePanel'} onChange={handleChange('#softwarePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar className={classes.softwareAvatar}>S</Avatar>
-                        <Typography className={classes.skillsSummary}>Software Frameworks</Typography>
+                        <Avatar className={classes.thirdAvatar}>S</Avatar>
+                        <Typography className={classes.cardSummary}>Software Frameworks</Typography>
                     </AccordionSummary>
                     <AccordionDetails ref={scrollRef} >
                        <FrameworksCard />
@@ -79,8 +83,8 @@ const Skills = (props) => {
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#webservicePanel'} onChange={handleChange('#webservicePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar className={classes.webservicesAvatar}>W</Avatar>
-                        <Typography className={classes.skillsSummary}>Web Services and Cloud</Typography>
+                        <Avatar className={classes.fourthAvatar}>W</Avatar>
+                        <Typography className={classes.cardSummary}>Web Services and Cloud</Typography>
                     </AccordionSummary>
                     <AccordionDetails ref={scrollRef} >
                        <WebServicesCard />
@@ -88,8 +92,8 @@ const Skills = (props) => {
                 </Accordion>
                 <Accordion expanded={panelExpanded === '#databasePanel'} onChange={handleChange('#databasePanel')}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Avatar className={classes.databasesAvatar}>D</Avatar>
-                        <Typography className={classes.skillsSummary}>Databases</Typography>
+                        <Avatar className={classes.fifthAvatar}>D</Avatar>
+                        <Typography className={classes.cardSummary}>Databases</Typography>
                     </AccordionSummary>
                     <AccordionDetails ref={scrollRef} >
                        <DatabasesCard />

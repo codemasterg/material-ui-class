@@ -31,9 +31,9 @@ function App() {
         <Header tabIndex={tabIndex} setTabIndex={setTabIndex} menuItemSelectedIndex={menuItemSelectedIndex} setMenuItemSelectedIndex={setMenuItemSelectedIndex} />
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/skills" component={Skills} />
-          <Route exact path="/experience" component={Experience}/>
-          <Route exact path="/resume" component={Resume} />
+          <Route exact path="/skills" render={props => <Skills {...props} setTabIndex={setTabIndex} />} />  {/* use render when you need to pass props on a route*/}
+          <Route exact path="/experience" render={props => <Experience {...props} setTabIndex={setTabIndex} />}/>
+          <Route exact path="/resume" render={props => <Resume {...props} setTabIndex={setTabIndex} />} />
           <Route exact path="/about" component={() => <div style={ {height: "650px"}}>About Page</div>} />
           <Route exact path="/contact" component={() => <div style={ {height: "650px"}}>Contact Page</div>} />
         </Switch>

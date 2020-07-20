@@ -8,27 +8,27 @@ import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import skillsStyles from './skillsStyles'
+import cardStyles from '../CommonStyles/cardStyles'
 
-// Card that describes web services skills
+// Card that describes web services card
 const WebServicesCard = () => {
-    const classes = skillsStyles();
+    const classes = cardStyles();
 
     return (
-        <Card className={classes.skillsCard}>
+        <Card className={classes.card}>
             <CardContent>
                 <Typography className={classes.listItemHeader}>Web Services and Cloud</Typography>
                 <List>
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>ReST Services (5 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Spring MVC / Spring Boot based,
+                        <ListItemText primary={<Typography variant="h6" className={classes.cardDetails}>ReST Services (5 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.cardDetails}>Spring MVC / Spring Boot based,
                            using embedded Tomcat and Tomcat web server, Spring interceptors and security.</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>AWS (1 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Amazon Web Services 
+                        <ListItemText primary={<Typography variant="h6" className={classes.cardDetails}>AWS (1 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.cardDetails}>Amazon Web Services 
                             (Elastic Beanstalk, Elastic Auto Scaling using Application Load Balancer, Rolling Updates, S3) hosting enterprise web applications 
                             using Tomcat and MySQL.  2020 Coursework from UDemy:&nbsp;
                             <a href="https://www.udemy.com/course/deploy-java-spring-boot-to-aws-amazon-web-service/" target="_blank" rel="noopener noreferrer" style={ {textDecoration: "none"} }>
@@ -39,15 +39,15 @@ const WebServicesCard = () => {
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>SOAP Services (5 yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>WSDL definitions, XSLT, and programming
+                        <ListItemText primary={<Typography variant="h6" className={classes.cardDetails}>SOAP Services (5 yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.cardDetails}>WSDL definitions, XSLT, and programming
                             of XML Gateways (IBM Datapower) using XSLT.</Typography>}>
                         </ListItemText>
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.skillsDetails}>Big Data (1yr)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.skillsDetails}>Apache Spark and Accumulo,
+                        <ListItemText primary={<Typography variant="h6" className={classes.cardDetails}>Big Data (1yr)</Typography>}
+                            secondary={<Typography variant="inherit" className={classes.cardDetails}>Apache Spark and Accumulo,
                             ingest of billions of location data records (transformed from proprietary format to relational in a Spark cluster).
                             </Typography>}>
                         </ListItemText>

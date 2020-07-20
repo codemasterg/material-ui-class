@@ -42,7 +42,7 @@ const tabIndexToPathMap = {
             },
             {
                 path: "/experience#5to15",
-                label: "Past 5 to 15 Years"
+                label: "Past 5 to 15"
             },
             {
                 path: "/experience#15toBeginning",
@@ -66,6 +66,11 @@ const tabIndexToPathMap = {
         path: "/contact",
         label: "Contact",
     },
+}
+
+// Use the current window path location to find and return the corresponding tab index from the 'tabIndexToPathMap'
+export const getTabIndexFromPath = () => {
+    return parseInt(Object.keys(tabIndexToPathMap).find(key => tabIndexToPathMap[key].path === window.location.pathname));
 }
 
 export default tabIndexToPathMap
