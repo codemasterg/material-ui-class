@@ -27,7 +27,7 @@ const Contact = (props) => {
             <Card className={classes.card} style={{ margin: "1em" }}>
 
                 <CardContent>
-                    <Grid container alignItems="left" justify="left" spacing={1} alignContent='space-between'>
+                    <Grid container alignItems="center" justify="left" spacing={1} alignContent='space-between'>
                         <Grid item>
                             <Avatar alt="favicon" src={favicon} />
                         </Grid>
@@ -37,7 +37,7 @@ const Contact = (props) => {
 
                     </Grid>
                     <Divider variant="inset" className={classes.divider} />
-                    <Grid container direction="row" alignItems="center" justify="center" spacing={1} >
+                    <Grid container direction="row" alignItems="center" justify="left" spacing={1} >
                         <Grid item>
                             <Avatar alt="Greg Totsline" src={selfie} />
                         </Grid>
@@ -45,7 +45,7 @@ const Contact = (props) => {
                             <Typography className={classes.cardSummary}>Greg Totsline, Owner</Typography>
                         </Grid>
                     </Grid>
-                    <Divider variant="fullWidth" className={classes.divider} />
+                    <Divider variant="inset" className={classes.divider} />
                     <Grid container direction="row" alignItems="center" justify="center" spacing={1} >
                         <Grid item>
                             <Avatar alt="gmail" src={gmailLogo} />
@@ -60,7 +60,7 @@ const Contact = (props) => {
                             <Avatar alt="cell phone" src={phoneLogo} />
                         </Grid>
                         <Grid item>
-                            <Typography><a className={classes.link} href="tel:301-956-5548">Call or Text: 1-301-956-5548</a></Typography>
+                            <Typography><a className={classes.link} href="tel:301-956-5548">Call / Text 301-956-5548</a></Typography>
                         </Grid>
                     </Grid>
                     <Divider variant="fullWidth" className={classes.divider} />
@@ -69,7 +69,9 @@ const Contact = (props) => {
                             <Avatar alt="Linked In" src={linkedInLogo} />
                         </Grid>
                         <Grid item>
-                            <Typography><a className={classes.link} href="https://www.linkedin.com/in/greg-totsline">Connect Via LinkedIn</a></Typography>
+                            <Typography><a className={classes.link} href="https://www.linkedin.com/in/greg-totsline" rel="noopener noreferrer" target="_blank">
+                                Contact Me Via LinkedIn</a>
+                            </Typography>
                         </Grid>
                     </Grid>
                 </CardContent>
