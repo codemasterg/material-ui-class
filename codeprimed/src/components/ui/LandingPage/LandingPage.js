@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
 import { useTheme } from '@material-ui/core/styles'
@@ -11,18 +11,30 @@ import CardMedia from '@material-ui/core/CardMedia'
 import CardActionArea from '@material-ui/core/CardActionArea'
 
 import ButtonArrow from '../../ui/ButtonArrow'
-// import './landingPage.css'
 import background from '../../../assets/landingPage.jpg'
+import javaLogo from '../../../assets/java.png'
+import dockerLogo from '../../../assets/docker.png'
+import reactLogo from '../../../assets/react.png'
+import jenkinsLogo from '../../../assets/jenkins.png'
+import mysqlLogo from '../../../assets/mysql.png'
+import springBootLogo from '../../../assets/springBoot.png'
+import jsLogo from '../../../assets/js.png'
 import landingPageStyles from './landingPageStyles'
+import {executeScroll} from '../../../utils/Scroll'
 
 
 // Main page, the Hero Block is the 1st thing user's see
 const LandingPage = (props) => {
     const classes = landingPageStyles();
     const theme = useTheme();
+    const scrollRef = useRef(null);
+
+    useEffect( () => {
+        executeScroll(scrollRef, -100); 
+    });
 
     return (
-        <Grid container direction="column" >
+        <Grid ref={scrollRef} container direction="column" >
             <Grid item> {/* ---Hero Block--- */}
                 <Grid container justify="center" alignItems="center" direction="row"  >
                     <Grid sm item>
@@ -55,7 +67,7 @@ const LandingPage = (props) => {
                                         <CardActionArea href="https://www.oracle.com/java/technologies/" style={{ height: "3em", width: "3em", margin: ".2em" }}>
                                             <CardMedia
                                                 className={classes.media}
-                                                image="java.png"
+                                                image={javaLogo}
                                                 title="Visit Java"
                                                 style={{ height: "3em", width: "3em", margin: ".2em" }}
                                             />
@@ -63,7 +75,7 @@ const LandingPage = (props) => {
                                         <CardActionArea href="https://spring.io/projects/spring-boot" style={{ height: "3em", width: "6em", margin: ".2em" }}>
                                             <CardMedia
                                                 className={classes.media}
-                                                image="springBoot.png"
+                                                image={springBootLogo}
                                                 title="Visit Spring Boot"
                                                 style={{ height: "3em", width: "6em", margin: ".2em" }}
                                             />
@@ -71,7 +83,7 @@ const LandingPage = (props) => {
                                         <CardActionArea href="https://www.mysql.com/" style={{ height: "3em", width: "4.2em", margin: ".2em" }} >
                                         <CardMedia
                                             className={classes.media}
-                                            image="mysql.png"
+                                            image={mysqlLogo}
                                             title="Visit MySQL"
                                             style={{ height: "3em", width: "4.2em", margin: ".2em" }}
                                         />
@@ -79,7 +91,7 @@ const LandingPage = (props) => {
                                         <CardActionArea href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" style={{ height: "3em", width: "3em", margin: ".2em" }}>
                                         <CardMedia
                                             className={classes.media}
-                                            image="js.png"
+                                            image={jsLogo}
                                             title="Visist JS"
                                             style={{ height: "3em", width: "3em", margin: ".2em" }}
                                         />
@@ -87,7 +99,7 @@ const LandingPage = (props) => {
                                         <CardActionArea href="https://reactjs.org" style={{ height: "3em", width: "3em", margin: ".2em" }} >
                                         <CardMedia
                                             className={classes.media}
-                                            image="react.png"
+                                            image={reactLogo}
                                             title="Visit React"
                                             style={{ height: "3em", width: "3em", margin: ".2em" }}
                                         />
@@ -95,7 +107,7 @@ const LandingPage = (props) => {
                                         <CardActionArea href="https://www.docker.com" style={{ height: "3.1em", width: "3.6em", margin: ".2em" }} >
                                         <CardMedia
                                             className={classes.media}
-                                            image="docker.png"
+                                            image={dockerLogo}
                                             title="Visit Docker"
                                             style={{ height: "3.1em", width: "3.6em", margin: ".2em" }}
                                         />
@@ -103,7 +115,7 @@ const LandingPage = (props) => {
                                         <CardActionArea href="https://www.jenkins.io/" style={{ height: "3em", width: "3.1em", margin: ".2em" }} >
                                         <CardMedia
                                             className={classes.media}
-                                            image="jenkins.png"
+                                            image={jenkinsLogo}
                                             title="Visit Jenkins"
                                             style={{ height: "3em", width: "3.1em", margin: ".2em" }}
                                         />

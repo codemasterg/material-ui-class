@@ -14,6 +14,7 @@ import {executeScroll} from '../../../utils/Scroll'
 import RecentExperienceCard from './RecentExperienceCard'
 import MidCareerExperienceCard from './MidCareerExperienceCard'
 import EarlyCareerExperienceCard from './EarlyCareerExperienceCard'
+import TrainingCard from './TrainingCard'
 
 const Experience = (props) => {
     const classes = cardStyles();
@@ -44,7 +45,7 @@ const Experience = (props) => {
             props.history.push(props.history.location.pathname);  // if user explicitly closes a panel, remove hash since no panels will be open
         }
         setPanelExpanded(isExpanded ? panelName : false);
-        executeScroll(scrollRef);  // scroll up to clicked panel
+        executeScroll(scrollRef, 0);  // scroll up to clicked panel
     }
 
     return (
@@ -74,8 +75,7 @@ const Experience = (props) => {
                         <Avatar className={classes.thirdAvatar}>E</Avatar>
                         <Typography className={classes.cardSummary}>Early Career</Typography>
                     </AccordionSummary>
-                    <AccordionDetails>
-                       {/* <FrameworksCard ref={scrollRef} /> */}
+                    <AccordionDetails ref={scrollRef}>
                       <EarlyCareerExperienceCard />
                     </AccordionDetails>
                 </Accordion>
@@ -84,9 +84,8 @@ const Experience = (props) => {
                         <Avatar className={classes.fourthAvatar}>T</Avatar>
                         <Typography className={classes.cardSummary}>Training And Education</Typography>
                     </AccordionSummary>
-                    <AccordionDetails>
-                       {/* <WebServicesCard ref={scrollRef} /> */}
-                       Training & Education
+                    <AccordionDetails ref={scrollRef}> 
+                       <TrainingCard />
                     </AccordionDetails>
                 </Accordion>
             </Grid>
