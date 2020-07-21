@@ -11,7 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 
 import reactLogo from '../../../assets/react.png';
-import springBootLogo from '../../../assets/springBoot.png';
+import awsLogo from '../../../assets/aws.png';
 import dockerLogo from '../../../assets/docker.png';
 import materialUiLogo from '../../../assets/material-ui.png';
 
@@ -34,13 +34,13 @@ const TrainingCard = () => {
                             secondary={<Typography variant="inherit" className={classes.cardDetails}><Avatar alt="React" src={reactLogo} style={ {marginBottom: "0.5em"} } />
                                 React with Redux and React Hooks: Hands-on development of a single page application that included the use of the 
                                 React Router, Redux, Thunk, and Hooks.<br /><br />
-                                <Avatar alt="React" src={springBootLogo} style={ {marginBottom: "0.5em"} } />Deploying Spring Boot Applications
+                                <Avatar alt="AWS" src={awsLogo} style={ {marginBottom: "0.5em"} } />Deploying Spring Boot Applications
                                 to AWS: EBS, Load Balanced Deployments, Auto Scaling, Rolling Deployments<br /><br />
-                                <Avatar alt="React" src={materialUiLogo} style={ {marginBottom: "0.5em"} } />
+                                <Avatar alt="Material-UI" src={materialUiLogo} style={ {marginBottom: "0.5em"} } />
                                 Material-UI: Developed web application to learn best practices when using Material-UI components (Theme setup 
                                 for common typography and other styles), Tabs, Lists, Menus, Buttons, SwipeableDrawer, Grid Layouts, Cards, 
                                 Avatars, Inputs and Validation.<br /><br />
-                                <Avatar alt="React" src={dockerLogo} style={ {marginBottom: "0.5em"} } />
+                                <Avatar alt="Docker" src={dockerLogo} style={ {marginBottom: "0.5em"} } />
                                  Docker: Setup Docker locally, creation and execution of containers, use of volumes and bind mounts, Docker 
                                  Compose for multi-containers, Swarm learning on labs.play-with-docker.
                                 </Typography>}>

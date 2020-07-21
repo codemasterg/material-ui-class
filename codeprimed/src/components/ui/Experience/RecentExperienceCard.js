@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -7,6 +8,9 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+
+import lockheedLogo from '../../../assets/lockheed.png';
 
 import cardStyles from '../CommonStyles/cardStyles'
 
@@ -17,7 +21,10 @@ const RecentExperienceCard = () => {
     return (
         <Card className={classes.card}>
             <CardContent>
+                <Grid container direction="row">
+                <Avatar alt="Lockheed" src={lockheedLogo} style={ {marginRight : "0.5em", marginTop: "-0.5em"} } />
                 <Typography className={classes.listItemHeader}>Lockheed Martin RMS, Software Engineer Senior Staff</Typography>
+                </Grid>
                 <List>
                     <ListItem alignItems="flex-start">
                         <ListItemText primary={<Typography variant="h6" className={classes.cardDetails}>Malware Management System (10/19 - Present)</Typography>}

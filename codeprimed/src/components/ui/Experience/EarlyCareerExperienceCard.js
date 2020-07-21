@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -7,7 +8,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
 
+import hughesLogo from '../../../assets/hughes.png';
+import comsatLogo from '../../../assets/comsat.png';
 import cardStyles from '../CommonStyles/cardStyles'
 
 // Card that describes work history (from 15 yrs ago to beginning)
@@ -17,7 +21,10 @@ const EarlyCareerExperienceCard = () => {
     return (
         <Card className={classes.card}>
             <CardContent>
-                <Typography className={classes.listItemHeader}>Hughes Network Systems, Pricipal Software Engineer II</Typography>
+                <Grid container direction="row">
+                    <Avatar alt="Hughes" src={hughesLogo} style={{ marginRight: "0.5em", marginTop: "-0.5em" }} />
+                    <Typography className={classes.listItemHeader}>Hughes Network Systems, Pricipal Software Engineer II</Typography>
+                </Grid>
                 <List>
                     <ListItem alignItems="flex-start">
                         <ListItemText primary={<Typography variant="h6" className={classes.cardDetails}>Transformational Communication MilsatCom (2004 - 2005)</Typography>}
@@ -52,18 +59,21 @@ const EarlyCareerExperienceCard = () => {
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                 </List>
-                <Typography className={classes.listItemHeader}>COMSAT, Pricipal Software Engineer</Typography>
+                <Grid container direction="row">
+                    <Avatar alt="COMSAT" src={comsatLogo} style={{ marginRight: "0.5em", marginTop: "-0.5em" }} />
+                    <Typography className={classes.listItemHeader}>COMSAT, Pricipal Software Engineer</Typography>
+                </Grid>
                 <List>
                     <ListItem alignItems="flex-start">
                         <ListItemText primary={<Typography variant="h6" className={classes.cardDetails}>INMARSAT and ACeS Satellite Systems(1988 - 1998)</Typography>}
-                            secondary={<Typography variant="inherit" className={classes.cardDetails}>Worked as lead software engineer of network management development 
-                                for the ACeS personal communications system product, a major cellular/satellite GSM based phone system. Responsible for the design 
-                                and implementation of a TMN network management system for the central management site.  
-                                Coordinate and direct the activities of the development team which encompasses network management, GUI, and DBMS subsystems. 
-                                Product specification and task scheduling are also major job responsibilities.<br /><br />Lead software engineer for Inmarsat 
-                                M/B LES communications system product.  Full SDLC including requirements writing, software design, debug, and multiple levels of 
-                                testing including international on-site acceptance testing.<br /><br />Responsible for the design, implementation, and test of 
-                                real time finite state machine software in C for telephony circuit switching and PSTN applications that support call rates of up 
+                            secondary={<Typography variant="inherit" className={classes.cardDetails}>Worked as lead software engineer of network management development
+                            for the ACeS personal communications system product, a major cellular/satellite GSM based phone system. Responsible for the design
+                            and implementation of a TMN network management system for the central management site.
+                            Coordinate and direct the activities of the development team which encompasses network management, GUI, and DBMS subsystems.
+                                Product specification and task scheduling are also major job responsibilities.<br /><br />Lead software engineer for Inmarsat
+                                M/B LES communications system product.  Full SDLC including requirements writing, software design, debug, and multiple levels of
+                                testing including international on-site acceptance testing.<br /><br />Responsible for the design, implementation, and test of
+                                real time finite state machine software in C for telephony circuit switching and PSTN applications that support call rates of up
                                 to tens of calls per second.  This task was completed independently and ahead of schedule.
                                 </Typography>}>
 
