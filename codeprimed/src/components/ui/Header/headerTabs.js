@@ -57,6 +57,12 @@ const tabIndexToPathMap = {
     3: {
         path: "/resume",
         label: "Resume",
+        submenuItems: [
+            {
+                path: "/resume.pdf",
+                label: "Download or Print"
+            },
+        ]
     },
     4: {
         path: "/about",

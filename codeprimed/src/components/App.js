@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import { ThemeProvider } from '@material-ui/styles';
 import Header from './ui/Header/Header';
@@ -32,10 +32,13 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/skills" render={props => <Skills {...props} setTabIndex={setTabIndex} />} />  {/* use render when you need to pass props on a route*/}
-          <Route exact path="/experience" render={props => <Experience {...props} setTabIndex={setTabIndex} />}/>
+          <Route exact path="/experience" render={props => <Experience {...props} setTabIndex={setTabIndex} />} />
           <Route exact path="/resume" render={props => <Resume {...props} setTabIndex={setTabIndex} />} />
-          <Route exact path="/about" component={() => <div style={ {height: "650px"}}>About Page</div>} />
-          <Route exact path="/contact" component={() => <div style={ {height: "650px"}}>Contact Page</div>} />
+          <Route exact path="/resume.pdf" render={() => {
+             window.open('http://192.168.1.24:3000/resume.pdf'); return <Redirect to="/resume"/>;  // after opening pdf in new tab, redirect so original page still shows resume
+          }} />
+          <Route exact path="/about" component={() => <div style={{ height: "650px" }}>About Page</div>} />
+          <Route exact path="/contact" component={() => <div style={{ height: "650px" }}>Contact Page</div>} />
         </Switch>
         <Footer tabIndex={tabIndex} setTabIndex={setTabIndex} menuItemSelectedIndex={menuItemSelectedIndex} setMenuItemSelectedIndex={setMenuItemSelectedIndex} />
       </BrowserRouter>
