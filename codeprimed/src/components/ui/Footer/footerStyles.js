@@ -13,7 +13,6 @@ export default makeStyles((theme) => ({
         position: "relative",
         [theme.breakpoints.down("md")]: {
             height: "6em",
-           
         },
     },
 
