@@ -44,29 +44,22 @@ export default makeStyles((theme) => ({
     },
 
     icon: {
-        height: "4em",
-        width: "4em",
+        height: "2.5em",
+        width: "2.5em",
         marginLeft: "1em",
-        // marginTop: "4em",
-        [theme.breakpoints.down("md")]: {
-            height: "2em",
-            width: "2em",
-            marginTop: "3em",
+        [theme.breakpoints.down("sm")]: {
+        height: "2em",
+        width: "2em",
         },
-        [theme.breakpoints.down("xs")]: {
-            height: "2.5em",
-            width: "2.5em",
-        }
     },
 
-    socialContainer: {
+    contactContainer: {
         display: "flex",
         position: "absolute",
         right: "1.5em",
-        marginTop: "-3em",
-        [theme.breakpoints.down("md")]: {
+        marginTop: "-2.5em",
+        [theme.breakpoints.down("sm")]: {
             right: "0.6em",
-            marginTop: "-5em"
         }
     },
 }));

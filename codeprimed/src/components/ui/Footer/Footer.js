@@ -5,9 +5,9 @@ import Hidden from '@material-ui/core/Hidden'
 
 import footerStyles from './footerStyles'
 import footerAdornment from '../../../assets/CP-Footer.svg'
-import facebook from '../../../assets/facebook.svg'
-import twitter from '../../../assets/twitter.svg'
-import instagram from '../../../assets/instagram.svg'
+import linkedInLogo from '../../../assets/linkedin.png'
+import gmailLogo from '../../../assets/gmail.jpeg'
+import phoneLogo from '../../../assets/cellphone.png'
 
 const Footer = (props) => {
     const classes = footerStyles();
@@ -66,20 +66,20 @@ const Footer = (props) => {
                     </Grid>
                 </Grid>
             </Hidden>
-            {/* Since I want the social media icons to appear in the same row as the grid above, but they are never hidden
+            {/* Since I want the contact icons to appear in the same row as the grid above but they are never hidden,
                 must use divs.  If another Grid is used and justify is flex-end, then the links above will not be clickable
                 because a flex-end grid here would sit on top of and of the row item in line with the SM icons. */}
             <img alt="Footer" src={footerAdornment} className={classes.adornment} />
-            <div className={classes.socialContainer} >
+            <div className={classes.contactContainer} >
                 {/* set anchor (a) element as the component and set its href */}
-                <a href="https://www.facebook.com" rel="noopener noreferrer" target="_blank">
-                    <img alt="facebook logo" src={facebook} className={classes.icon} />
+                <a href="mailto:codeprimed@gmail.com" rel="noopener noreferrer" target="_blank">
+                    <img alt="gmail logo" src={gmailLogo} className={classes.icon} />
                 </a>
-                <a href="https://www.twitter.com" rel="noopener noreferrer" target="_blank">
-                    <img alt="twitter logo" src={twitter} className={classes.icon} />
+                <a href="tel:301-956-5548" rel="noopener noreferrer" target="_blank">
+                    <img alt="twitter logo" src={phoneLogo} className={classes.icon} />
                 </a>
-                <a href="https://www.instagram.com" rel="noopener noreferrer" target="_blank">
-                    <img alt="instagrram logo" src={instagram} className={classes.icon} />
+                <a href="https://www.linkedin.com/in/greg-totsline" rel="noopener noreferrer" target="_blank">
+                    <img alt="instagrram logo" src={linkedInLogo} className={classes.icon} />
                 </a>
             </div>
         </footer>

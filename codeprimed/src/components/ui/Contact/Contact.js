@@ -13,8 +13,8 @@ import cardStyles from '../CommonStyles/cardStyles';
 import contactStyles from './contactStyles'
 import selfie from '../../../assets/greg-totsline.jpg'
 import linkedInLogo from '../../../assets/linkedin.png'
-import gmailLogo from '../../../assets/gmail.png'
-import phoneLogo from '../../../assets/cellphone.jpeg'
+import gmailLogo from '../../../assets/gmail.jpeg'
+import phoneLogo from '../../../assets/cellphone.png'
 import favicon from '../../../assets/favicon.png'
 
 const Contact = (props) => {
