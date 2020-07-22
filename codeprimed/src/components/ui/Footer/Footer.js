@@ -8,6 +8,7 @@ import footerAdornment from '../../../assets/CP-Footer.svg'
 import linkedInLogo from '../../../assets/linkedin.png'
 import gmailLogo from '../../../assets/gmail.jpeg'
 import phoneLogo from '../../../assets/cellphone.png'
+import LightTooltip from '../../../utils/LightToolTip'
 
 const Footer = (props) => {
     const classes = footerStyles();
@@ -72,15 +73,21 @@ const Footer = (props) => {
             <img alt="Footer" src={footerAdornment} className={classes.adornment} />
             <div className={classes.contactContainer} >
                 {/* set anchor (a) element as the component and set its href */}
-                <a href="mailto:codeprimed@gmail.com" rel="noopener noreferrer" target="_blank">
-                    <img alt="gmail logo" src={gmailLogo} className={classes.icon} />
-                </a>
-                <a href="tel:301-956-5548" rel="noopener noreferrer" target="_blank">
-                    <img alt="twitter logo" src={phoneLogo} className={classes.icon} />
-                </a>
-                <a href="https://www.linkedin.com/in/greg-totsline" rel="noopener noreferrer" target="_blank">
-                    <img alt="instagrram logo" src={linkedInLogo} className={classes.icon} />
-                </a>
+                <LightTooltip title="Email codeprimed@gmail.com" >
+                    <a href="mailto:codeprimed@gmail.com" rel="noopener noreferrer" target="_blank">
+                        <img alt="gmail logo" src={gmailLogo} className={classes.icon} />
+                    </a>
+                </LightTooltip>
+                <LightTooltip title="Call or text 301-956-5548" >
+                    <a href="tel:301-956-5548" rel="noopener noreferrer" target="_blank">
+                        <img alt="twitter logo" src={phoneLogo} className={classes.icon} />
+                    </a>
+                </LightTooltip>
+                <LightTooltip title="Connect on LinkedIn" >
+                    <a href="https://www.linkedin.com/in/greg-totsline" rel="noopener noreferrer" target="_blank">
+                        <img alt="instagrram logo" src={linkedInLogo} className={classes.icon} />
+                    </a>
+                </LightTooltip>
             </div>
         </footer>
     )

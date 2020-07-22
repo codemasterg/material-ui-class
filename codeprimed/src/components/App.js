@@ -10,6 +10,7 @@ import Skills from './ui/Skills/Skills';
 import Experience from './ui/Experience/Experience';
 import Resume from './ui/Resume/Resume';
 import Contact from './ui/Contact/Contact';
+import About from './ui/About/About'
 
 /**
  * Dependencies:
@@ -38,7 +39,7 @@ function App() {
           <Route exact path="/resume.pdf" render={() => {
              window.open('http://192.168.1.24:3000/resume.pdf'); return <Redirect to="/resume"/>;  // after opening pdf in new tab, redirect so original page still shows resume
           }} />
-          <Route exact path="/about" component={() => <div style={{ height: "650px" }}>About Page</div>} />
+          <Route exact path="/about" render={props => <About {...props} setTabIndex={setTabIndex} />} />
           <Route exact path="/contact" render={props => <Contact {...props} setTabIndex={setTabIndex} />} />
         </Switch>
         <Footer tabIndex={tabIndex} setTabIndex={setTabIndex} menuItemSelectedIndex={menuItemSelectedIndex} setMenuItemSelectedIndex={setMenuItemSelectedIndex} />
