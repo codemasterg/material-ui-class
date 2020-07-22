@@ -15,7 +15,7 @@ const Footer = (props) => {
     return (
         <footer className={classes.footer}>
             {/* Hide footer content if on a mobile */}
-            <Hidden mdDown>
+            <Hidden smDown>
                 <Grid container justify="center" className={classes.footerContainer}>
                     <Grid item className={classes.footerGridItem} >
                         <Grid container direction="column" spacing={1}>

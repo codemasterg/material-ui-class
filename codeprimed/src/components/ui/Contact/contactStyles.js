@@ -20,6 +20,12 @@ export default makeStyles((theme) => ({
             fontSize: "1rem",
         },
     },
+    contactTypeLabel: {
+        ...theme.typography.handwrittenTitle,
+        [theme.breakpoints.down("sm")]: {
+            fontSize: "1.5rem",
+        }
+    },
 
     divider: {
         marginTop: "1em",

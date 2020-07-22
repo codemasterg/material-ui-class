@@ -6,6 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent'
 import Avatar from '@material-ui/core/Avatar';
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { useTheme } from '@material-ui/core/styles'
 
 import cardStyles from '../CommonStyles/cardStyles';
 import contactStyles from './contactStyles'
@@ -18,6 +20,8 @@ import favicon from '../../../assets/favicon.png'
 const Contact = (props) => {
 
     const classes = { ...cardStyles(), ...contactStyles() };
+    const theme = useTheme();
+    const isNotSmallScreen = useMediaQuery(theme.breakpoints.up("sm"));  // medium and smaller
 
     return (
         <>
@@ -27,7 +31,7 @@ const Contact = (props) => {
             <Card className={classes.card} style={{ margin: "1em" }}>
 
                 <CardContent>
-                    <Grid container alignItems="center" justify="left" spacing={1} alignContent='space-between'>
+                    <Grid container alignItems="flex-end" justify="left" spacing={1} alignContent='space-between'>
                         <Grid item>
                             <Avatar alt="favicon" src={favicon} />
                         </Grid>
@@ -37,16 +41,20 @@ const Contact = (props) => {
 
                     </Grid>
                     <Divider variant="inset" className={classes.divider} />
-                    <Grid container direction="row" alignItems="center" justify="left" spacing={1} >
+                    <Grid container direction="row" alignItems="flex-end" justify="left" spacing={1} >
                         <Grid item>
                             <Avatar alt="Greg Totsline" src={selfie} />
                         </Grid>
                         <Grid item>
-                            <Typography className={classes.cardSummary}>Greg Totsline, Owner</Typography>
+                            <Typography className={classes.contactTypeLabel}>Greg Totsline, Owner</Typography>
                         </Grid>
                     </Grid>
                     <Divider variant="inset" className={classes.divider} />
                     <Grid container direction="row" alignItems="center" justify="center" spacing={1} >
+                        {isNotSmallScreen ? 
+                            <Grid item xs={2}>
+                                <Typography className={classes.contactTypeLabel}>Email</Typography>
+                            </Grid> : null}
                         <Grid item>
                             <Avatar alt="gmail" src={gmailLogo} />
                         </Grid>
@@ -56,6 +64,10 @@ const Contact = (props) => {
                     </Grid>
                     <Divider variant="fullWidth" className={classes.divider} />
                     <Grid container direction="row" alignItems="center" justify="center" spacing={1} >
+                        {isNotSmallScreen ? 
+                            <Grid item xs={2}>
+                                <Typography className={classes.contactTypeLabel}>Phone</Typography>
+                            </Grid> : null}
                         <Grid item>
                             <Avatar alt="cell phone" src={phoneLogo} />
                         </Grid>
@@ -65,6 +77,10 @@ const Contact = (props) => {
                     </Grid>
                     <Divider variant="fullWidth" className={classes.divider} />
                     <Grid container direction="row" alignItems="center" justify="center" spacing={1} >
+                        {isNotSmallScreen ? 
+                            <Grid item xs={2}>
+                                <Typography className={classes.contactTypeLabel}>Web</Typography>
+                            </Grid> : null}
                         <Grid item>
                             <Avatar alt="Linked In" src={linkedInLogo} />
                         </Grid>

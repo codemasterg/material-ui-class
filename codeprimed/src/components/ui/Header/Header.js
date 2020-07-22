@@ -38,7 +38,7 @@ function ElevationScroll(props) {
 const Header = (props) => {
     const classes = headerStyles();
     const theme = useTheme();
-    const isMediumToSmallScreen = useMediaQuery(theme.breakpoints.down("md"));  // medium and smaller
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));  // medium and smaller
     // iOS has a "swipe to go back" feature that interferes with the discovery feature, so discovery has to be disabled.
     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
@@ -207,7 +207,7 @@ const Header = (props) => {
                             <img src={logo} alt="company logo" className={classes.logo} />
                         </Button>
 
-                        {isMediumToSmallScreen ? drawer : tabs}
+                        {isSmallScreen ? drawer : tabs}
 
                     </Toolbar>
                 </AppBar>
