@@ -59,7 +59,7 @@ const Contact = (props) => {
                             <Avatar alt="gmail" src={gmailLogo} />
                         </Grid>
                         <Grid item>
-                            <Typography><a className={classes.link} href="mailto:codeprimed@gmail.com">codeprimed@gmail.com</a></Typography>
+                            <Typography><a className={classes.link} href="mailto:codeprimed@gmail.com" rel="noopener noreferrer" target="_blank">codeprimed@gmail.com</a></Typography>
                         </Grid>
                     </Grid>
                     <Divider variant="fullWidth" className={classes.divider} />
