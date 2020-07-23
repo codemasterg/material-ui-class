@@ -46,7 +46,7 @@ const Resume = (props) => {
     }
 
     function download() {
-        window.open('https://https://master.d15x40ji9kfba4.amplifyapp.com/resume.pdf');
+        window.open('https://master.d15x40ji9kfba4.amplifyapp.com/resume.pdf');
     }
 
     return (
