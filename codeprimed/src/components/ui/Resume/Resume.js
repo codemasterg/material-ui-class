@@ -46,7 +46,7 @@ const Resume = (props) => {
     }
 
     function download() {
-        window.open('https://master.d162hchzdrk4o4.amplifyapp.com:3000/resume.pdf');
+        window.open('https://https://master.d15x40ji9kfba4.amplifyapp.com/resume.pdf');
     }
 
     return (
@@ -55,7 +55,7 @@ const Resume = (props) => {
         // 2. Want to package UI and web services backend into single Spring Boot app jar so all can run in embedded tomcat
         // and not have separate nodjs running. See article: https://medium.com/@mukundmadhav/build-and-deploy-react-app-with-spring-boot-and-mysql-6f888eb0c600 
         <Box className={classes.box} borderColor="primary.light" border={1}>
-            <Document file={{ url: "https://master.d162hchzdrk4o4.amplifyapp.com:3000/resume.pdf" }} onLoadSuccess={onDocumentLoadSuccess} >
+            <Document file={{ url: "https://master.d15x40ji9kfba4.amplifyapp.com/resume.pdf" }} onLoadSuccess={onDocumentLoadSuccess} >
                 <Page pageNumber={pageNumber} width={800} />
             </Document>
             <div>
