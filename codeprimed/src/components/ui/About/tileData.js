@@ -55,7 +55,7 @@ const tileData = [
     {
         img: beer,
         title: 'Beer',
-        description: 'Enjoying a cold beer in Saint Vincent.',
+        description: 'Enjoying a cold beer while vacationing in Saint Vincent.',
         cols: 1, 
     },
     {
