@@ -7,7 +7,7 @@ import raisedGarden from '../../../assets/raisedGarden.jpg'
 import pasta from '../../../assets/pasta.jpg'
 import carrollcreek from '../../../assets/carrollcreek.jpg'
 import rebound from '../../../assets/rebound.jpg'
-import beer from '../../../assets/beer.jpg'
+import travel from '../../../assets/travel.jpg'
 
 const tileData = [
     {
@@ -53,15 +53,15 @@ const tileData = [
         cols: 1, 
     },
     {
-        img: beer,
-        title: 'Beer',
-        description: 'Enjoying a cold beer while vacationing in Saint Vincent.',
+        img: travel,
+        title: 'Travel',
+        description: 'Hiking and travel.  The American Basin, CO (elevation 12,300 ft)',
         cols: 1, 
     },
     {
         img: carrollcreek,
         title: 'Carroll Creek Park',
-        description: 'Strolling Carroll Creek Park',
+        description: 'Strolling Carroll Creek Park, Frederick MD',
         cols: 2, 
     },
     {
