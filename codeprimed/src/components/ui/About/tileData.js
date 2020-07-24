@@ -67,7 +67,7 @@ const tileData = [
     {
         img: rebound,
         title: 'Rebound',
-        description: 'Rebound, our beloved Parson Russel Terrier (2004 - 2019)',
+        description: 'Our beloved Parson Russel Terrier (2004 - 2019)',
         cols: 1, 
     },
 ];
