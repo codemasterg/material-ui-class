@@ -13,7 +13,7 @@ const tileData = [
     {
         img: selfie,
         title: 'Selfie',
-        description: 'Greg Totsline, owner of Code Primed LLC',
+        description: 'Greg Totsline, owner of Code Primed, LLC',
         cols: 1, 
     },
     {
