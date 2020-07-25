@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/experience" render={props => <Experience {...props} setTabIndex={setTabIndex} />} />
           <Route exact path="/resume" render={props => <Resume {...props} setTabIndex={setTabIndex} />} />
           <Route exact path="/resume.pdf" render={() => {
-             window.open('https://master.d15x40ji9kfba4.amplifyapp.com/resume.pdf'); return <Redirect to="/resume"/>;  // after opening pdf in new tab, redirect so original page still shows resume
+             window.open('https://www.codeprimed.us/resume.pdf'); return <Redirect to="/resume"/>;  // after opening pdf in new tab, redirect so original page still shows resume
           }} />
           <Route exact path="/about" render={props => <About {...props} setTabIndex={setTabIndex} />} />
           <Route exact path="/contact" render={props => <Contact {...props} setTabIndex={setTabIndex} />} />
