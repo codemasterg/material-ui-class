@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { useTheme } from '@material-ui/core/styles'
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Grow from '@material-ui/core/Slide';
 import Typography from '@material-ui/core/Typography';
 import tileData from './tileData';
+import {executeScroll} from '../../../utils/Scroll'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,6 +29,10 @@ const About = (props) => {
     const theme = useTheme();
     const picRef = useRef(null);
 
+    useEffect( () => {
+        executeScroll(picRef); 
+    });
+
     const handleClick = (event, description) => {
         picRef.current.textContent = description;
     };
@@ -38,7 +43,7 @@ const About = (props) => {
                 <Typography ref={picRef} style={{ ...theme.typography.subtitle1, marginLeft: "1em" }}>Click or hover to learn about me.</Typography>
             </Grid>
 
-            <div className={classes.root} {...props}>  {/* props spread must be included for Grow transition to work */}
+            <div className={classes.root} {...props.children}>  {/* props spread must be included for Grow transition to work */}
                 <Grow in={true} timeout={1400}>
                     <GridList cellHeight={160} className={classes.gridList} cols={3}>
                         {tileData.map((tile, index) => (

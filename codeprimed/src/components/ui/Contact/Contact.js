@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 
 import Card from '@material-ui/core/Card';
 import Divider from '@material-ui/core/Divider';
@@ -16,17 +16,23 @@ import linkedInLogo from '../../../assets/linkedin.png'
 import gmailLogo from '../../../assets/gmail.jpeg'
 import phoneLogo from '../../../assets/cellphone.png'
 import favicon from '../../../assets/favicon.png'
+import {executeScroll} from '../../../utils/Scroll'
 
 const Contact = (props) => {
 
     const classes = { ...cardStyles(), ...contactStyles() };
     const theme = useTheme();
     const isNotSmallScreen = useMediaQuery(theme.breakpoints.up("sm"));  // medium and smaller
+    const scrollRef = useRef(null);
+
+    useEffect( () => {
+        executeScroll(scrollRef); 
+    });
 
     return (
         <>
             <Grid container alignItems="center" justify="center" spacing={1} >
-                <Typography className={classes.cardPageTitle}>Contact Me</Typography>
+                <Typography ref={scrollRef} className={classes.cardPageTitle}>Contact Me</Typography>
             </Grid>
             <Card className={classes.card} style={{ margin: "1em" }}>
 

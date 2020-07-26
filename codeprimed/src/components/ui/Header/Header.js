@@ -21,7 +21,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import logo from '../../../assets/CP-logo-v1.svg'
 // import logo from '../../../assets/logo.svg'
 import headerStyles from './headerStyles'
-import tabIndexToPathMap, {getTabIndexFromPath} from './headerTabs'
+import tabIndexToPathMap, { getTabIndexFromPath } from './headerTabs'
 
 function ElevationScroll(props) {
     const { children } = props;
@@ -44,7 +44,7 @@ const Header = (props) => {
 
     // Hooks
     const [menuAnchorEl, setMenuAnchorEl] = useState(null);
-    const [menuOpen, setMenuOpen] = useState([false, false, false]);   // padded so that this array aligns with 'tabIndexToPathMap' submenu def
+    const [menuOpen, setMenuOpen] = useState([false, false, false, false, false]);   // padded so that this array aligns with 'tabIndexToPathMap' submenu def
 
     const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -115,8 +115,8 @@ const Header = (props) => {
 
     let tabWithSubmenu = (tab, tabIndex) => {
         return (
-            <>
-                <Tab key={tab.path} className={classes.tab} component={Link} to={tab.path}
+            <Fragment key={tab.path} >
+                <Tab className={classes.tab} component={Link} to={tab.path}
                     label={tabIndexToPathMap[tabIndex].label}
                     onClick={event => handleMenuClick(event, tabIndex, tab)}
                 />
@@ -136,17 +136,17 @@ const Header = (props) => {
                             <MenuItem key={item.path} component={Link} to={item.path}
                                 onClick={() => { handleMenuClose(); }}
                                 classes={{ root: classes.skillsMenuItem }}
-                            selected={index === props.menuItemSelectedIndex && props.tabIndex === 1} 
+                                selected={index === props.menuItemSelectedIndex && props.tabIndex === 1}
                             >{item.label}
                             </MenuItem>
 
                         ))
                     }
                 </Menu>
-            </>
-
+            </Fragment>
         );
     }
+
 
     // Only appears when medium and small screens are not used, see varibale 'isMediumToSmallScreen' in this file.
     const tabs = (
