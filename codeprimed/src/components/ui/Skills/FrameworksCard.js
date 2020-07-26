@@ -54,7 +54,7 @@ const FrameworksCard = () => {
                     </ListItem>
                     <Divider variant="fullWidth" component="li" />
                     <ListItem alignItems="flex-start">
-                        <ListItemText primary={<Typography variant="h6" className={classes.cardDetails}>Lucene / Elastic (4 yr)</Typography>}
+                        <ListItemText primary={<Typography variant="h6" className={classes.cardDetails}>Lucene (4 yr) / Elastic (2 mo)</Typography>}
                             secondary={<Typography variant="inherit" className={classes.cardDetails}>Implemented custom search and support
                             for "more like this" using Lucene API, migrated to Elastic for scalability and availability.</Typography>}>
                         </ListItemText>
