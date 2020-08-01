@@ -23,7 +23,7 @@ const ArchitectureCard = () => {
                         <ListItemText primary={<Typography variant="h6" className={classes.cardDetails}>OOA&D</Typography>}
                             secondary={<Typography variant="inherit" className={classes.cardDetails}>Extensive object oriented analysis and
                             design work for large scale enterprise systems: network management, biometrics, web applications, analytics, malware.
-                                             </Typography>}>
+                                             </Typography>}> 
 
                         </ListItemText>
                     </ListItem>
