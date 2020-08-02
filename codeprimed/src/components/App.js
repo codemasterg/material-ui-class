@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
+import { Auth } from 'aws-amplify';
+
 import { ThemeProvider } from '@material-ui/styles';
 import Header from './ui/Header/Header';
 import Footer from './ui/Footer/Footer';
@@ -41,6 +43,7 @@ function App() {
           }} />
           <Route exact path="/about" render={props => <About {...props} setTabIndex={setTabIndex} />} />
           <Route exact path="/contact" render={props => <Contact {...props} setTabIndex={setTabIndex} />} />
+          <Route exact path="/logout" component={ () => {  Auth.signOut({ global: true }); return null; } } />
         </Switch>
         <Footer tabIndex={tabIndex} setTabIndex={setTabIndex} menuItemSelectedIndex={menuItemSelectedIndex} setMenuItemSelectedIndex={setMenuItemSelectedIndex} />
       </BrowserRouter>
