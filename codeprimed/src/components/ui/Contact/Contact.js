@@ -78,7 +78,7 @@ const Contact = (props) => {
                             <Avatar alt="cell phone" src={phoneLogo} />
                         </Grid>
                         <Grid item>
-                            <Typography><a className={classes.link} href="tel:301-956-5548">Call / Text 301-956-5548</a></Typography>
+                            <Typography><a className={classes.link} href="tel:240-385-9914">Call / Text 240-385-9914</a></Typography>
                         </Grid>
                     </Grid>
                     <Divider variant="fullWidth" className={classes.divider} />

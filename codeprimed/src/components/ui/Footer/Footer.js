@@ -78,8 +78,8 @@ const Footer = (props) => {
                         <img alt="gmail logo" src={gmailLogo} className={classes.icon} />
                     </a>
                 </LightTooltip>
-                <LightTooltip title="Call or text 301-956-5548" >
-                    <a href="tel:301-956-5548" rel="noopener noreferrer" target="_blank">
+                <LightTooltip title="Call or text 240-385-9914" >
+                    <a href="tel:240-385-9914" rel="noopener noreferrer" target="_blank">
                         <img alt="twitter logo" src={phoneLogo} className={classes.icon} />
                     </a>
                 </LightTooltip>
